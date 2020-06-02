@@ -1,0 +1,82 @@
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+ 
+ 
+/*==========  Mobile First Method  ==========*/
+ 
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .bg-theme-colored {
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(226,3,190,1) 0%, rgba(92,58,140,1) 42%, rgba(65,102,173,1) 70%, rgba(0,212,255,1) 100%);
+}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .bg-theme-colored {
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(226,3,190,1) 0%, rgba(92,58,140,1) 42%, rgba(65,102,173,1) 70%, rgba(0,212,255,1) 100%);
+}
+}
+
+
+/*==========  Non-Mobile First Method  ==========*/
+ 
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1199px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 991px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 479px) {
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+     .volunteer:hover .volunteer-info {
+    top: auto;
+}
+.bg-theme-colored h3 {
+    margin-left: 0px!important;
+}
+.menuzord .showhide {
+    height: 0px;
+}
+.bg-theme-colored {
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(226,3,190,1) 0%, rgba(92,58,140,1) 42%, rgba(65,102,173,1) 70%, rgba(0,212,255,1) 100%);
+}
+.title-icon {
+    padding-top: 20px;
+}
+  
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 360px) {
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 319px) {
+}
