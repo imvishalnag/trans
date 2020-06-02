@@ -916,10 +916,11 @@ margin:0 !important; padding:0 !important;
 /* START ROUND OPTION */
 .user-list .datatable td a {color:#fff!important;cursor: pointer;}
 .user-detail .form-group {padding: 0 10px!important;margin-bottom: 0;}
-.user-detail .form-group label {width:100%}
+.user-detail .form-group h4 {font-weight:700}
 .user-detail .form-group input {margin-bottom: 5px;}
 .user-detail .thumbnails {margin-top: 0px;}
 .user-detail .thumbnails > li, .user-detail .thumbnails > li .options {margin: 0;margin-top: 0px;margin-left: 0px;width: 118px;height: 118px;}
 .user-detail .procedure span {margin-right: 30px;}
-.user-detail .doc input[type="file"] {width: 63%}
+.user-detail .doc input[type="file"] {width: 100%;}
+.user-detail .doc .thumbnails > li {margin-bottom: 10px;}
 .user-detail hr {border-top: 2px solid #81a7c6;}

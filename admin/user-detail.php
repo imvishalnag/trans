@@ -36,19 +36,19 @@
 						<div class="wdgt-header"><i class="fa fa-table"></i>User Detail</div>
 						<div class="wdgt-body tbl" style="padding-bottom:10px;">
 							<form role="form">
-								<div class="form-group col-md-5">
-									<h4 for="email">Name <small>(assigned at birth)</small></h4>
+								<div class="form-group col-md-5 col-xs-6">
+									<h4 for="email">1. Name <small>(assigned at birth)</small></h4>
 									<input type="text" class="form-control col-sm-12">
-									<h4 for="date">Father Name </h4>
-									<input type="text" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-5">
-									<h4 for="date">Preferred Name </h4>
-									<input type="text" class="form-control col-sm-12">
-									<h4 for="date">Mother Name </h4>
+									<h4 for="date">2. Father Name </h4>
 									<input type="text" class="form-control col-sm-12">
 								</div>
-								<div class="form-group col-md-2">
+								<div class="form-group col-md-5 col-xs-6">
+									<h4 for="date">3. Preferred Name </h4>
+									<input type="text" class="form-control col-sm-12">
+									<h4 for="date">4. Mother Name </h4>
+									<input type="text" class="form-control col-sm-12">
+								</div>
+								<div class="form-group col-md-2 col-xs-12">
 									<h4 for="date">Photo </h4>
 									<ul class="thumbnails">
 										<li>
@@ -61,8 +61,8 @@
 										</li>
 									</ul>
 								</div>								
-								<div class="form-group col-md-7" style="margin-bottom: 20px;">
-									<h4>Preferred Category<small>Under the definition of Transgender, been recognized under NALSA Judgment (Supra)</small></h4>
+								<div class="form-group col-md-8 col-xs-12" style="margin-bottom: 20px;">
+									<h4>5. Preferred Category<small>Under the definition of Transgender, been recognized under NALSA Judgment (Supra)</small></h4>
 									<select id="e1" class="form-select2">
 										<option value="AL">Alabama</option>
 										<option value="AR">Arkansas</option>
@@ -83,25 +83,29 @@
 								</div>
 								<div class="form-group col-md-12">
 									<hr>
+									<h4>6. Permanent Address</h4>
 								</div>
-								<div class="form-group col-md-6">
-									<h4 for="date">Permanent Address</h4>
+								<div class="form-group col-md-6 col-xs-6">
+									<h4 for="date">Address</h4>
 									<textarea class="form-control form-warning" rows="4"></textarea>
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Pincode</h4>
 									<input type="text" class="form-control col-sm-6" placeholder="Pin">
 									<h4 for="date">District</h4>
 									<input type="text" class="form-control col-sm-6" placeholder="Dist">
 								</div>
+								<div class="form-group col-md-12">
+									<h4>7. Present Address</h4>
+								</div>
 								<div class="form-group col-md-12" style="padding: 11px!important;">
 									<input type="checkbox"> if present address is same as permerant address
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Present Address</h4>
 									<textarea class="form-control form-warning" rows="4"></textarea>
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Pincode</h4>
 									<input type="text" class="form-control col-sm-6" placeholder="Pin">
 									<h4 for="date">District</h4>
@@ -111,24 +115,24 @@
 									<hr>
 								</div>
 								<div class="form-group col-md-12">
-									<h4 for="date">Gharana Details <small>(In Case of Kinner/Hijra)</small></h4>
+									<h4 for="date">8. Gharana Details <small>(In Case of Kinner/Hijra)</small></h4>
 									<textarea class="form-control form-warning" rows="2"></textarea>
 								</div>
-								<div class="form-group col-md-4">
+								<div class="form-group col-md-4 col-xs-4">
 									<h4 for="date">Pincode</h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
-								<div class="form-group col-md-4">
+								<div class="form-group col-md-4 col-xs-4">
 									<h4 for="date">District</h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
-								<div class="form-group col-md-4">
+								<div class="form-group col-md-4 col-xs-4">
 									<h4 for="date">State</h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
 								<div class="form-group col-md-12 procedure" style="margin-bottom:10px">
 									<hr>
-									<h4>Whether undergone Psychiatric Evaluation/HRT/Lazer Therapy (if “YES”), Please submit details:
+									<h4>9. Whether undergone Psychiatric Evaluation/HRT/Lazer Therapy (if “YES”), Please submit details:
 										<span>
 											<input type="radio" name="blue" checked>
 											<b class="radio-h4">Yes</b>										
@@ -139,19 +143,19 @@
 										</span>	
 									</h4>
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Doctor Name</h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Professional Expertise</h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Phone Number</h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
-								<div class="form-group col-md-6 procedure">
+								<div class="form-group col-md-6 col-xs-6 procedure">
 									<h4 for="date" style="margin-bottom: 12px;">Procedures</h4>
 									<span>
 										<input type="radio" name="blue" checked>
@@ -166,197 +170,381 @@
 										<b class="radio-h4">LAZER THERAPY </b>										
 									</span>
 									<br>						
-								</div>								
-								<div class="form-group col-md-12">
-									<hr>
-									<h4>All Necessary Document</h4>
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Birth Certificate </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="date">Election Voter </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="date">Pan Card </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Adhaar Card </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Ration Card / BPL Card </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Bank Password </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Mnrega Card </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Passport </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">High School Leaving Certificate </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">H.S Passed Certificate </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Gradution Passed Certificate </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-4 doc">
-									<h4 for="email">Name Changed Affidavit </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
 								</div>						
 								<div class="form-group col-md-12">
 									<hr>
-									<h4>Qualification</h4>
+									<h4>10. Do you have any of the following documents ? if “YES”, Tick (Yes) & submit a copy of the same</h4>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.a. Birth Certificate 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="date">10.b. Election Voter 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+										
+								<div class="row">
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="date">10.c. Pan Card 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">
+										
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.d. Adhaar Card 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">
+										
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.e. Ration Card / BPL Card 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">
+										
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.f. Bank Password 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">		
+									<div class="form-group col-md-5 col-xs-5  doc" style="margin-left: 30px">
+										<h4 for="email">10.g. Mnrega Card 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4  doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2  doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">		
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.h. Passport 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">		
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.i. High School Leaving Certificate 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>	
+								<div class="row">	
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.j. H.S Passed Certificate 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>	
+								<div class="row">
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.k. Gradution Passed Certificate 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>								
+								</div>	
+								<div class="row">											
+									<div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
+										<h4 for="email">10.l. Name Changed Affidavit 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 col-xs-4 doc">
+										<input type="file" class="form-control col-sm-12">
+									</div>
+									<div class="form-group col-md-2 col-xs-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
+													<a href="#"><i class="icon icon-trash"></i></a>
+												</div>
+											</li>
+										</ul>
+									</div>									
+								</div>			
+									<div class="form-group col-md-12">
+									<hr>
+									<h4>11. Qualification (if any), furnish details & submit a copy of the same :</h4>
 								</div>
 								<div class="form-group col-md-6">
-									<h4 for="email">Name of Exam</h4>
+									<h4 for="email">Name of the School/College/University</h4>
 									<input type="text" class="form-control col-sm-12">
 								</div>
 								<div class="form-group col-md-2">
@@ -368,10 +556,37 @@
 									<input type="file" class="form-control col-sm-12">
 								</div>
 								<div class="form-group col-md-2">
-									<button class="btn btn-primary" style="margin-top: 20px;">+ Add More</button>
+									<button class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px">+ Add More</button>
+								</div>
+								<div class="form-group col-md-12">
+									<h4>12. Other Qualification (if any), furnish details & submit a copy of the same : 
+										<span>
+											<input type="radio" name="blue" checked>
+											<b class="radio-h4">Yes</b>										
+										</span>
+										<span>
+											<input type="radio" name="blue">
+											<b class="radio-h4">No </b>										
+										</span>	</h4>
+								</div>
+								<div class="form-group col-md-6">
+									<h4 for="email">Name of the institution</h4>
+									<input type="text" class="form-control col-sm-12">
+								</div>
+								<div class="form-group col-md-2">
+									<h4 for="date">Passing Year </h4>
+									<input type="text" class="form-control col-sm-12">
+								</div>
+								<div class="form-group col-md-2">
+									<h4 for="date">Detail </h4>
+									<input type="file" class="form-control col-sm-12">
+								</div>
+								<div class="form-group col-md-2">
+									<button class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px">+ Add More</button>
 								</div>
 								<div class="form-group col-md-12 procedure">
-									<h4>Whether Name or Gender Changed in documents (if “YES”, please furnish details)
+									<hr>
+									<h4>13. Whether Name or Gender Changed in documents (if “YES”, please furnish details)
 										<span>
 											<input type="radio" name="blue" checked>
 											<b class="radio-h4">Yes</b>										
@@ -392,7 +607,7 @@
 								</div>					
 								<div class="form-group col-md-12">
 									<hr>
-									<h4>Details of Guru (In case, if you are under the shelter of Guru)</h4>
+									<h4>14. Details of Guru (In case, if you are under the shelter of Guru)</h4>
 								</div>
 								<div class="form-group col-md-6">
 									<h4 for="email">Name of Guru</h4>
@@ -412,9 +627,9 @@
 								</div>
 								<div class="form-group col-md-12">
 									<hr>
+									<h4 for="date" style="margin-bottom: 12px;">15. Source of Income : Please Tick (√), and furnish details : </h4>
 								</div>
 								<div class="form-group col-md-7 procedure">
-									<h4 for="date" style="margin-bottom: 12px;">Source of Income</h4>
 									<span>
 										<input type="radio" name="blue" checked="">
 										<b class="radio-h4">Begging</b>										
@@ -440,19 +655,19 @@
 									<hr>
 								</div>
 								<div class="form-group col-md-4">
-									<h4 for="date">Age</h4>
+									<h4 for="date">16. Age</h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
 								<div class="form-group col-md-4">
-									<h4 for="date">Date Of Birth <small>(as per birth certificate</small></h4>
+									<h4 for="date">17. Date Of Birth <small>(as per birth certificate</small></h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>
 								<div class="form-group col-md-4">
-									<h4 for="date">Phone No </h4>
+									<h4 for="date">18. Phone No </h4>
 									<input type="text" class="form-control col-sm-6">
 								</div>	
 								<div class="form-group col-md-12">
-									<h4>Any Criminal/Civil Case pending against you
+									<h4>19. Any Criminal/Civil Case pending against you, if “YES”, please furnish details
 										<span>
 											<input type="radio" name="blue" checked>
 											<b class="radio-h4">Yes</b>										
@@ -466,67 +681,139 @@
 								</div>
 								<div class="form-group col-md-12">
 									<hr>
-									<h4 for="date"> Are you been a victim of any of the following matter, if “YES” Please furnish details any of the following</h4>
+									<h4 for="date">20. Are you been a victim of any of the following matter, if “YES” Please furnish details any of the following</h4>
 								</div>
-								<div class="form-group col-md-3 doc">
-									<h4 for="email">Adhaar Card </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
+								<div class="row">
+										
+									<div class="form-group col-md-5 doc" style="margin-left: 30px">
+										<h4 for="email">Bullying 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 doc">
+										<input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+									</div>
+									<div class="form-group col-md-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<input type="file" class="form-control col-sm-12">
+												</div>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="form-group col-md-3 doc">
-									<h4 for="email">Ration Card / BPL Card </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
+								<div class="row">
+										
+									<div class="form-group col-md-5 doc" style="margin-left: 30px">
+										<h4 for="email">Police Harassment (in any form)
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 doc">
+										<input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+									</div>
+									<div class="form-group col-md-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<input type="file" class="form-control col-sm-12">
+												</div>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="form-group col-md-3 doc">
-									<h4 for="email">Bank Password </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
+								<div class="row">										
+									<div class="form-group col-md-5 doc" style="margin-left: 30px">
+										<h4 for="email">Discrimination from any Authority(in any establishment or public places )
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 doc">
+										<input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+									</div>
+									<div class="form-group col-md-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<input type="file" class="form-control col-sm-12">
+												</div>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="form-group col-md-3 doc">
-									<h4 for="email">Mnrega Card </h4>
-									<ul class="thumbnails">
-										<li>
-											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic">
-											</a>
-											<div class="options" style="background: #403f3fad;">
-												<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-												<a href="#"><i class="icon icon-trash"></i></a>
-											</div>
-										</li>
-									</ul>
-									<input type="file" class="form-control col-sm-12">
+								<div class="row">										
+									<div class="form-group col-md-5 doc" style="margin-left: 30px">
+										<h4 for="email">Family or Social torture. 
+											<span>
+												<input type="radio" name="blue" checked>
+												<b class="radio-h4">Yes</b>										
+											</span>
+											<span>
+												<input type="radio" name="blue">
+												<b class="radio-h4">No </b>										
+											</span>	
+										</h4>
+									</div>
+									<div class="form-group col-md-4 doc">
+										<input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+									</div>
+									<div class="form-group col-md-2 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<input type="file" class="form-control col-sm-12">
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-6 doc">
+										<ul class="thumbnails">
+											<li>
+												<a title="Group photo 1">
+													<img src="../images/profilepic.png" class="profilepic">
+												</a>
+												<div class="options" style="background: #403f3fad;">
+													<input type="file" class="form-control col-sm-12">
+												</div>
+											</li>
+										</ul>
+									</div>
 								</div>
 								<div class="form-group col-md-12">
 									<hr>
