@@ -361,41 +361,37 @@
           <div class="row">
             
             <div class="col-sm-6 col-md-6 col-sm-offset-3">
-              <form id="contact_form" name="contact_form" class="login" action="user-form.php" method="post">
 
+              <form id="contact_form" name="contact_form" class="login" action="web/php/user_send_otp.php" method="post">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="form_name">Phone Number</label>
-                      <input id="form_name" name="name" class="form-control" type="text" placeholder="Enter Phone" required="">
-                      <button class="btn-side">Send OTP</button>
+                      <input id="mobile" name="name" class="form-control" type="text" placeholder="Enter Phone" required="">
+                      <button class="btn-side" type="button" id="otp_button">Send OTP</button>
                     </div>
                   </div>
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <label for="form_name">OTP</label>
-                      <input id="form_name" name="name" class="form-control" type="text" placeholder="Enter Otp" required="">
-                      <button class="btn-side">Verify</button>
+
+                  <span id="mobile_otp_error" style="padding-left: 14px;"></span>
+
+                  <span id="enter_otp_div" style="display: none;">
+                    <div class="col-sm-12" >
+                      <div class="form-group">
+                        <label for="form_name">OTP</label>
+                        <input id="otp" name="name" class="form-control" type="text" placeholder="Enter Otp" required="">
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <label for="form_email">Password</label>
-                      <input id="form_email" name="phone" class="form-control required email" type="tel" placeholder="Enter Password">
+
+                    <span id="otp_verify_error" style="padding-left: 14px;"></span>
+
+                    <hr style="color: pink">
+                    <div class="form-group" align="middle">
+                      <button type="button" class="btn btn-default btn-flat btn-theme-colored" style="color:#fff" name="submit" id="verify_otp_btn">Login</button>
                     </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <label for="form_email">Confirm Password</label>
-                      <input id="form_email" name="phone" class="form-control required email" type="tel" placeholder="Enter Confirm Password">
-                    </div>
-                  </div>
-                  <hr style="color: pink">
-                  <div class="form-group" align="middle">
-                    <button type="submit" class="btn btn-default btn-flat btn-theme-colored" style="color:#fff" name="submit">Login</button>
-                  </div>
+                  </span>
                 </div>
               </form> 
+
             </div>											
           </div>
         </div>
@@ -458,19 +454,48 @@
   <!-- JS | Custom script for all pages -->
   <script src="js/custom.js"></script>  
   <script type="text/javascript">
-    $(document).ready(function() {
-      /*
-      var defaults = {
-          containerID: 'toTop', // fading element id
-        containerHoverID: 'toTopHover', // fading element hover id
-        scrollSpeed: 1200,
-        easingType: 'linear' 
-      };
-      */
-      
-      $().UItoTop({ easingType: 'easeOutQuart' });
-      
-    });
+
+
+
+    $("document").ready(function(){
+      $("#otp_button").click(function(){
+        var mobile = $("#mobile").val();
+         $.ajax({
+            type: "POST",
+            url: "web/php/user_send_otp.php",
+            data:{ mobile : mobile,},
+              success: function(data){
+                  if (data != "1") {
+                    $("#mobile_otp_error").html('<b style="color:green">OTP Has Been Send To Your Mobile Number Please Check</b>');
+                    $("#otp_button").html('Resend OTP');
+                    $("#enter_otp_div").show();
+                  }else {
+                    $("#mobile_otp_error").html('<b style="color:red">Sorry Try Again after sometime Server May Be slow Down</b>');
+                    $("#enter_otp_div").hide();
+                  }
+              }
+        });
+      });
+
+
+      $("#verify_otp_btn").click(function(){
+        var mobile = $("#mobile").val();
+        var otp = $("#otp").val();
+         $.ajax({
+            type: "POST",
+            url: "web/php/otp_verify.php",
+            data:{ mobile : mobile,otp:otp,},
+              success: function(data){
+                  if (data != "1") {
+                   window.location.href = "user-form.php";
+                  }else {
+                    $("#otp_verify_error").html('<b style="color:red">Sorry Try Again after sometime Server May Be slow Down</b>');
+                    // $("#enter_otp_div").hide();
+                  }
+              }
+        });
+      });
+    })
   </script>
 </body>
 

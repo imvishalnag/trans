@@ -137,6 +137,8 @@
 									<h4 for="date">State</h4>
 									<input type="text" class="form-control col-sm-6" name="gh_state">
 								</div>
+
+
 								<div class="form-group col-md-12 procedure" style="margin-bottom:10px">
 									<hr>
 									<h4>9. Whether undergone Psychiatric Evaluation/HRT/Lazer Therapy (if “YES”), Please submit details:
@@ -166,7 +168,7 @@
 									<div class="form-group col-md-6 col-xs-6 procedure">
 										<h4 for="date" style="margin-bottom: 12px;">Procedures</h4>
 										<span>
-											<input type="radio" name="phy_category" value="PSYCHIATRIC  EVALUATION">
+											<input type="radio" name="phy_category" value="PSYCHIATRIC  EVALUATION" checked>
 											<b class="radio-h4">PSYCHIATRIC  EVALUATION</b>										
 										</span>
 										<span>
@@ -202,8 +204,10 @@
 									</div>
 
 									<div class="form-group col-md-4 col-xs-4 doc" id="birth_status_div" style="display: none">
-										<input type="file" class="form-control col-sm-12" name="birth_file" >
+										<input type="file" class="form-control col-sm-12" name="birth_file" id="birth_file" onchange="validateFile('birth_file');">
+										<span id="birth_file_error"></span>
 									</div>
+
 								</div>
 
 								<div class="row">
@@ -219,7 +223,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="voter_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="voter_file" >
+										<input type="file" class="form-control col-sm-12" name="voter_file" id="voter_file" onchange="validateFile('voter_file');">
+										<span id="voter_file_error"></span>
 									</div>
 								</div>
 										
@@ -236,7 +241,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="pan_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="pan_file" >
+										<input type="file" class="form-control col-sm-12" name="pan_file" id="pan_file" onchange="validateFile('pan_file');">
+										<span id="pan_file_error"></span>
 									</div>
 								</div>
 
@@ -253,7 +259,8 @@
 										</span>
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="aadhar_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="aadhar_file" >
+										<input type="file" class="form-control col-sm-12" name="aadhar_file" id="aadhar_file" onchange="validateFile('aadhar_file');">
+										<span id="aadhar_file_error"></span>
 									</div>
 								</div>
 
@@ -270,7 +277,8 @@
 										</span>
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="ration_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="ration_file" >
+										<input type="file" class="form-control col-sm-12" name="ration_file" id="ration_file" onchange="validateFile('ration_file');">
+										<span id="ration_file_error"></span>
 									</div>
 								</div>
 
@@ -288,7 +296,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="bank_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="bank_file">
+										<input type="file" class="form-control col-sm-12" name="bank_file" id="bank_file" onchange="validateFile('bank_file');">
+										<span id="bank_file_error"></span>
 									</div>
 								</div>
 
@@ -305,7 +314,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4  doc" id="mnrg_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="mnrg_file">
+										<input type="file" class="form-control col-sm-12" name="mnrg_file" id="mnrg_file" onchange="validateFile('mnrg_file');">
+										<span id="mnrg_file_error"></span>
 									</div>
 								</div>
 
@@ -322,7 +332,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="pass_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="pass_file">
+										<input type="file" class="form-control col-sm-12" name="pass_file" id="pass_file" onchange="validateFile('pass_file');">
+										<span id="pass_file_error"></span>
 									</div>
 								</div>
 
@@ -339,7 +350,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="hslc_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="hslc_file">
+										<input type="file" class="form-control col-sm-12" name="hslc_file" id="hslc_file" onchange="validateFile('hslc_file');">
+										<span id="hslc_file_error"></span>
 									</div>
 								</div>	
 
@@ -356,7 +368,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="hs_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="hs_file">
+										<input type="file" class="form-control col-sm-12" name="hs_file" id="hs_file" onchange="validateFile('hs_file');">
+										<span id="hs_file_error"></span>
 									</div>
 								</div>	
 
@@ -374,7 +387,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="graduation_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="graduation_file" >
+										<input type="file" class="form-control col-sm-12" name="graduation_file"  id="graduation_file" onchange="validateFile('graduation_file');">
+										<span id="graduation_file_error"></span>
 									</div>					
 								</div>
 
@@ -391,7 +405,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="name_chng_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="name_chng_file"> 
+										<input type="file" class="form-control col-sm-12" name="name_chng_file"  id="name_chng_file" onchange="validateFile('name_chng_file');">
+										<span id="name_chng_file_error"></span>
 									</div>								
 								</div>			
 									<div class="form-group col-md-12">
@@ -409,10 +424,11 @@
 									</div>
 									<div class="form-group col-md-2">
 										<h4 for="date">Proof </h4>
-										<input type="file" class="form-control col-sm-12" name="q_file[]">
+										<input type="file" class="form-control col-sm-12" name="q_file[]"  id="q_file" onchange="validateFile('q_file');">
+										<span id="q_file_error"></span>
 									</div>
 									<div class="form-group col-md-2">
-										<button class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px" onclick="qualificationAdd()">+ Add More</button>
+										<button type="button" class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px" onclick="qualificationAdd()">+ Add More</button>
 									</div>
 								</span>
 
@@ -439,7 +455,8 @@
 									</div>
 									<div class="form-group col-md-2">
 										<h4 for="date">Detail </h4>
-										<input type="file" class="form-control col-sm-12" name="other_q_file">
+										<input type="file" class="form-control col-sm-12" name="other_q_file" id="other_q_file" onchange="validateFile('other_q_file');">
+										<span id="other_q_file_error"></span>
 									</div>
 								</span>
 
@@ -464,7 +481,8 @@
 									</div>
 									<div class="form-group col-md-5">
 										<h4 for="date">Detail</h4>
-										<input type="file" class="form-control col-sm-12" name="change_file" >
+										<input type="file" class="form-control col-sm-12" name="change_file" id="change_file" onchange="validateFile('change_file');">
+										<span id="change_file_error"></span>
 									</div>	
 								</span>		
 
@@ -515,7 +533,8 @@
 								</div>
 								<div class="form-group col-md-5">
 									<!-- <h4 for="date">Source of Income Detail</h4> -->
-									<input type="file" class="form-control col-sm-12" name="income_file">
+									<input type="file" class="form-control col-sm-12" name="income_file"  id="income_file" onchange="validateFile('income_file');">
+										<span id="income_file_error"></span>
 									<span>income proof</span>
 								</div>								
 								<div class="form-group col-md-12">
@@ -531,8 +550,10 @@
 								</div>
 								<div class="form-group col-md-4">
 									<h4 for="date">18. Phone No </h4>
-									<input type="text" class="form-control col-sm-6">
+									<input type="text" class="form-control col-sm-6" name="mobile">
 								</div>	
+
+								
 								<div class="form-group col-md-12">
 									<h4>19. Any Criminal/Civil Case pending against you, if “YES”, please furnish details
 										<span>
@@ -548,10 +569,12 @@
 										<textarea class="form-control form-warning" rows="2" name="criminal_details"></textarea>
 									</span>
 								</div>
+								
 								<div class="form-group col-md-12">
 									<hr>
 									<h4 for="date">20. Are you been a victim of any of the following matter, if “YES” Please furnish details any of the following</h4>
 								</div>
+
 								<div class="row">
 										
 									<div class="form-group col-md-4 doc" style="margin-left: 30px">
@@ -568,21 +591,11 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 doc" id="bullying_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="bullying_file">
+										<input type="file" class="form-control col-sm-12" name="bullying_file"  id="bullying_file" onchange="validateFile('bullying_file');">
+										<span id="bullying_file_error"></span>
 									</div>
-									<!-- <div class="form-group col-md-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">
 										
 									<div class="form-group col-md-4 doc" style="margin-left: 30px">
@@ -599,21 +612,11 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 doc" id="police_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="police_file">
+										<input type="file" class="form-control col-sm-12" name="police_file"  id="police_file" onchange="validateFile('police_file');">
+										<span id="police_file_error"></span>
 									</div>
-									<!-- <div class="form-group col-md-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<input type="file" class="form-control col-sm-12">
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">										
 									<div class="form-group col-md-4 doc" style="margin-left: 30px">
 										<h4 for="email">Discrimination from any Authority(in any establishment or public places )	
@@ -630,21 +633,11 @@
 										</span>
 									</div>
 									<div class="form-group col-md-4 doc" id="disc_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="disc_file">
+										<input type="file" class="form-control col-sm-12" name="disc_file"  id="disc_file" onchange="validateFile('disc_file');">
+										<span id="disc_file_error"></span>
 									</div>
-									<!-- <div class="form-group col-md-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<input type="file" class="form-control col-sm-12">
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">										
 									<div class="form-group col-md-4 doc" style="margin-left: 30px">
 										<h4 for="email">Family or Social torture. 
@@ -661,21 +654,11 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 doc" id="family_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="family_file">
+										<input type="file" class="form-control col-sm-12" name="family_file"  id="family_file" onchange="validateFile('family_file');">
+										<span id="family_file_error"></span>
 									</div>
-									<!-- <div class="form-group col-md-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<input type="file" class="form-control col-sm-12">
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">
 									<div class="form-group col-md-6 doc">
 										<ul class="thumbnails">
@@ -684,15 +667,19 @@
 													<img src="../images/profilepic.png" class="profilepic">
 												</a>
 												<div class="options" style="background: #403f3fad;">
-													<input type="file" class="form-control col-sm-12" name="user_sign">
+													<input type="file" class="form-control col-sm-12" name="user_sign"  id="user_sign" onchange="validateFile('user_sign');">
 												</div>
 											</li>
 										</ul>
+										<span id="user_sign_error"></span>
 									</div>
 								</div>
+
 								<div class="form-group col-md-12">
 									<hr>
 								</div>
+
+
 								<div class="form-group col-md-12">
 									<!-- <a href="#" class="btn btn-default">Cancel</a> -->
 									<button class="btn btn-success">Submit</button>

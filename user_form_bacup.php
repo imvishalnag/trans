@@ -3,13 +3,6 @@ session_start();
 if (!isset($_SESSION['mobile']) || empty($_SESSION['mobile'])) {
     header("location:login.php");
 }
-
-function showMsg($msg)
-{
-    if ($msg == '1') {
-        print "<p style='color:red'>Sorry User Not Found Try Again</p>";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -148,13 +141,8 @@ function showMsg($msg)
           <div class="row">
             
             <div class="col-sm-12 mbpr-0">
-                <?php
-                if (isset($_GET['msg']) && !empty($_GET['msg'])) {
-                    showMsg($_GET['msg']);
-                }
-                ?>
 
-                <form id="contact_form" name="contact_form" class="login" action="web/php/user_insert.php" method="post" enctype="multipart/form-data">
+                <form id="contact_form" name="contact_form" class="login" action="user-form.php" method="post">
                     
                     <div class="row">
 
@@ -313,777 +301,685 @@ function showMsg($msg)
                                 <br>						
                             </div>	
                         </span>
-                    </div>
-
-
-                    <div class="row">		
-
+                    </div>	
+                    <div class="row">				
                         <div class="form-group col-md-12">
                             <hr>
                             <h4>10. Do you have any of the following documents ? if “YES”, Tick (Yes) & submit a copy of the same</h4>
                         </div>
-
                         <div class="row mobdoc">
-
                             <div class="form-group col-md-5 col-xs-6 doc" style="margin-left: 30px">
                                 <h4 for="email">10.a. Birth Certificate 
                                     <span>
-                                        <input type="radio" name="birth_status" value="yes" onclick="checkFileDiv('birth_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="birth_status" checked value="no" onclick="checkFileDiv('birth_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="birth_status_div" style="display: none">
-                                <div class="form-group col-md-4 col-xs-3 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                                Upload
-                                        <input type="file" name="birth_file" id="birth_file" onchange="validateFile('birth_file',this);">
-                                    </div>
-                                </div>
-                                <span id="birth_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="birth_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
-
+                            <div class="form-group col-md-4 col-xs-3 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
-
                         <div class="row mobdoc">
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="date">10.b. Election Voter 
                                     <span>
-                                        <input type="radio" name="voter_status" value="yes" onclick="checkFileDiv('voter_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="voter_status" checked value="no" onclick="checkFileDiv('voter_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="voter_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file"  name="voter_file" id="voter_file" onchange="validateFile('voter_file',this);">
-                                    </div>
-                                </div>
-                                <span id="voter_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="voter_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
-                        </div>	
-
-
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>										
                         <div class="row mobdoc">
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="date">10.c. Pan Card 
                                     <span>
-                                        <input type="radio" name="pan_status" value="yes" onclick="checkFileDiv('pan_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="pan_status" value="no" checked onclick="checkFileDiv('pan_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="pan_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file" name="pan_file" id="pan_file" onchange="validateFile('pan_file',this);">
-                                    </div>
-                                </div>
-                                <span id="pan_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="pan_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
                         <div class="row mobdoc">
                                 
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="email">10.d. Adhaar Card 
                                     <span>
-                                        <input type="radio" name="aadhar_status" value="yes"  onclick="checkFileDiv('aadhar_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="aadhar_status" value="no" checked onclick="checkFileDiv('aadhar_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span  id="aadhar_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file" name="aadhar_file" id="aadhar_file" onchange="validateFile('aadhar_file',this);">
-                                    </div>
-                                </div>
-                                <span id="aadhar_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="aadhar_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
-
                         <div class="row mobdoc">
                                 
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="email">10.e. Ration Card / BPL Card 
                                     <span>
-                                        <input type="radio" name="ration_status" value="yes"  onclick="checkFileDiv('ration_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="ration_status" value="no" checked onclick="checkFileDiv('ration_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span  id="ration_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file" name="ration_file" id="ration_file" onchange="validateFile('ration_file',this);">
-                                    </div>
-                                </div>
-                                <span id="ration_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="ration_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
-
-                        <div class="row mobdoc">                                
+                        <div class="row mobdoc">
+                                
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
-                                <h4 for="email">10.f. Bank Passbook 
+                                <h4 for="email">10.f. Bank Password 
                                     <span>
-                                        <input type="radio" name="bank_status" value="yes"  onclick="checkFileDiv('bank_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="bank_status" value="no" checked onclick="checkFileDiv('bank_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span  id="bank_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file" name="bank_file" id="bank_file" onchange="validateFile('bank_file',this);">
-                                    </div>
-                                </div>
-                                <span id="bank_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="bank_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
-
                         <div class="row mobdoc">
                             <div class="form-group col-md-5 col-xs-5  doc" style="margin-left: 30px">
                                 <h4 for="email">10.g. Mnrega Card 
                                     <span>
-                                        <input type="radio" name="mnrg_status" value="yes"  onclick="checkFileDiv('mnrg_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="mnrg_status" value="no" checked onclick="checkFileDiv('mnrg_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="mnrg_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4  doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file" name="mnrg_file" id="mnrg_file" onchange="validateFile('mnrg_file',this);">
-                                    </div>
-                                </div>
-                                <span id="mnrg_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2  doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="mnrg_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4  doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2  doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
-
                         <div class="row mobdoc">		
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="email">10.h. Passport 
                                     <span>
-                                        <input type="radio" name="pass_status" value="yes"  onclick="checkFileDiv('pass_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="pass_status" value="no" checked onclick="checkFileDiv('pass_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span  id="pass_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file"  name="pass_file" id="pass_file" onchange="validateFile('pass_file',this);">
-                                    </div>
-                                </div>
-                                <span id="pass_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="pass_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-
-
                         <div class="row mobdoc">		
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="email">10.i. High School Leaving Certificate 
                                     <span>
-                                        <input type="radio" value="yes" name="hslc_status"  onclick="checkFileDiv('hslc_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" value="no" name="hslc_status" checked onclick="checkFileDiv('hslc_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="hslc_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                         Upload<input type="file" name="hslc_file" id="hslc_file" onchange="validateFile('hslc_file',this);">
-                                    </div>
-                                </div>
-                                <span id="hslc_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="hslc_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>	
-
-
                         <div class="row mobdoc">	
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="email">10.j. H.S Passed Certificate 
                                     <span>
-                                        <input type="radio" name="hs_status"  value="yes"  onclick="checkFileDiv('hs_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="hs_status"  value="no" checked onclick="checkFileDiv('hs_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="hs_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file"  name="hs_file" id="hs_file" onchange="validateFile('hs_file',this);">
-                                    </div>
-                                </div>
-                                <span id="hs_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="hs_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>	
-
-
                         <div class="row mobdoc">
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="email">10.k. Gradution Passed Certificate 
                                     <span>
-                                        <input type="radio" name="graduation_status" value="yes"  onclick="checkFileDiv('graduation_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="graduation_status" value="no" checked onclick="checkFileDiv('graduation_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="graduation_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload <input type="file" name="graduation_file"  id="graduation_file" onchange="validateFile('graduation_file',this);">
-                                    </div>
-                                </div>
-                                <span id="graduation_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="graduation_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>								
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>								
                         </div>	
-
-
                         <div class="row mobdoc">											
                             <div class="form-group col-md-5 col-xs-5 doc" style="margin-left: 30px">
                                 <h4 for="email">10.l. Name Changed Affidavit 
                                     <span>
-                                        <input type="radio" name="name_chng_status" value="yes"  onclick="checkFileDiv('name_chng_status')">
+                                        <input type="radio" name="blue" checked>
                                         <b class="radio-h4">Yes</b>										
                                     </span>
                                     <span>
-                                        <input type="radio" name="name_chng_status" value="no" checked onclick="checkFileDiv('name_chng_status')">
+                                        <input type="radio" name="blue">
                                         <b class="radio-h4">No </b>										
                                     </span>	
                                 </h4>
                             </div>
-                            <span id="name_chng_status_div" style="display: none;">
-                                <div class="form-group col-md-4 col-xs-4 doc">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file"  name="name_chng_file"  id="name_chng_file" onchange="validateFile('name_chng_file',this);">
-                                    </div>
-                                </div>
-                                <span id="name_chng_file_error"></span>
-                                <div class="form-group col-md-2 col-xs-2 doc">
-                                    <ul class="thumbnails">
-                                        <li>
-                                            <a title="Group photo 1">
-                                                <img src="images/profilepic.png" class="profilepic" id="name_chng_file_src">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>									
+                            <div class="form-group col-md-4 col-xs-4 doc">
+                                <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-2 col-xs-2 doc">
+                                <ul class="thumbnails">
+                                    <li>
+                                        <a title="Group photo 1">
+                                            <img src="images/profilepic.png" class="profilepic">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>									
                         </div>
-
                     </div>		
-
-
                     <div class="row">	
                         <div class="form-group col-md-12">
                             <hr>
                             <h4>11. Qualification (if any), furnish details & submit a copy of the same :</h4>
                         </div>
-                        <span id="qualification_div">
-                            <div class="form-group col-md-6">
-                                <h4 for="email">Name of the School/College/University</h4>
-                                <input type="text" class="form-control col-sm-12" name="q_name[]">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <h4 for="date">Passing Year </h4>
-                                <input type="text" class="form-control col-sm-12" name="q_year[]">
-                            </div>
-                            <div class="form-group col-md-2 col-xs-6">
-                                <h4 for="date">Detail </h4>
-                                <div class="options" style="background: #ff00fa;color:#fff">
-                                    Upload<input type="file"  name="q_file[]"  id="q_file" onchange="validateFile('q_file');">
-                                </div>
-                                <span id="q_file_error"></span>
-                            </div>
-                            <div class="form-group col-md-2 col-xs-6">
-                                <button type="button" class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px" onclick="qualificationAdd()">+ Add More</button>
-                            </div>
-                        </span>
+                        <div class="form-group col-md-6">
+                            <h4 for="email">Name of the School/College/University</h4>
+                            <input type="text" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <h4 for="date">Passing Year </h4>
+                            <input type="text" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group col-md-2 col-xs-6">
+                            <h4 for="date">Detail </h4>
+                            <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                        </div>
+                        <div class="form-group col-md-2 col-xs-6">
+                            <button class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px">+ Add More</button>
+                        </div>
                     </div>	
-
-
                     <div class="row">		
                         <div class="form-group col-md-12">
                             <h4>12. Other Qualification (if any), furnish details & submit a copy of the same : 
                                 <span>
-                                    <input type="radio" name="other_q_status"  value="yes" onclick="checkFileDiv('other_q_status')">
+                                    <input type="radio" name="blue" checked>
                                     <b class="radio-h4">Yes</b>										
                                 </span>
                                 <span>
-                                    <input type="radio" name="other_q_status" value="no" checked onclick="checkFileDiv('other_q_status')">
+                                    <input type="radio" name="blue">
                                     <b class="radio-h4">No </b>										
-                                </span>	
-                            </h4>
+                                </span>	</h4>
                         </div>
-                        <span id="other_q_status_div" style="display: none">
-                            <div class="form-group col-md-6">
-                                <h4 for="email">Name of the institution</h4>
-                                <input type="text" class="form-control col-sm-12" name="other_q_name">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <h4 for="date">Passing Year </h4>
-                                <input type="text" class="form-control col-sm-12" name="other_q_year">
-                            </div>
-                            <div class="form-group col-md-2 col-xs-6">
-                                <h4 for="date">Detail </h4>
-                                <div class="options" style="background: #ff00fa;color:#fff">
-                                    Upload<input type="file"  name="other_q_file" id="other_q_file" onchange="validateFile('other_q_file');">
-                                </div>
-                                <span id="other_q_file_error"></span>
-                            </div>
-                        </span>
-                        <!-- <div class="form-group col-md-2 col-xs-6">
+                        <div class="form-group col-md-6">
+                            <h4 for="email">Name of the institution</h4>
+                            <input type="text" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <h4 for="date">Passing Year </h4>
+                            <input type="text" class="form-control col-sm-12">
+                        </div>
+                        <div class="form-group col-md-2 col-xs-6">
+                            <h4 for="date">Detail </h4>
+                            <div class="options" style="background: #ff00fa;color:#fff">
+                                            Upload
+                                            <input type="file" onchange="readURL(this);">
+                                        </div>
+                        </div>
+                        <div class="form-group col-md-2 col-xs-6">
                             <button class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px">+ Add More</button>
-                        </div> -->
-                    </div>	
-
-
+                        </div>
+                    </div>		
                     <div class="form-group col-md-12 procedure">
                         <hr>
                         <h4>13. Whether Name or Gender Changed in documents (if “YES”, please furnish details)
                             <span>
-                                <input type="radio" name="gender_status" value="yes"  onclick="checkFileDiv('gender_status')">
+                                <input type="radio" name="blue" checked>
                                 <b class="radio-h4">Yes</b>										
                             </span>
                             <span>
-                                <input type="radio" name="gender_status" value="no" checked onclick="checkFileDiv('gender_status')">
+                                <input type="radio" name="blue">
                                 <b class="radio-h4">No </b>										
                             </span>	
                         </h4>
                     </div>
-                    <span id="gender_status_div" style="display: none;">
-                        <div class="form-group col-md-7">
-                            <h4> Changed Name</h4>
-                            <input type="text" class="form-control col-sm-12" name="change_name" >
+                    <div class="form-group col-md-7">
+                        <h4> Changed Name</h4>
+                        <input type="text" class="form-control col-sm-12">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <h4 for="date">Supporting Documents</h4>
+                        <div class="options" style="background: #ff00fa;color:#fff">
+                            Upload
+                            <input type="file" onchange="readURL(this);">
                         </div>
-                        <div class="form-group col-md-2">
-                            <h4 for="date">Supporting Documents</h4>
-                            <div class="options" style="background: #ff00fa;color:#fff">
-                                Upload
-                                <input type="file" name="change_file" id="change_file" onchange="validateFile('change_file',this);">
-                            </div>
-                        </div>
-                        <span id="change_file_error"></span>	
-                        <div class="form-group col-md-2">
-                            <a title="Group photo 1">
-                                <img src="images/profilepic.png" class="profilepic blah" id="change_file_src">
-                            </a>
-                        </div>	
-                    </span>
-
-
+                    </div>	
+                    <div class="form-group col-md-2">
+                        <a title="Group photo 1">
+                            <img src="images/profilepic.png" class="profilepic blah">
+                        </a>
+                    </div>					
                     <div class="form-group col-md-12">
                         <hr>
                         <h4>14. Details of Guru (In case, if you are under the shelter of Guru)</h4>
                     </div>
                     <div class="form-group col-md-6">
                         <h4 for="email">Name of Guru</h4>
-                        <input type="text" class="form-control col-sm-12" name="guru_name">
+                        <input type="text" class="form-control col-sm-12">
                     </div>
                     <div class="form-group col-md-3">
                         <h4 for="date">Picode</h4>
-                        <input type="text" class="form-control col-sm-12" name="guru_pin">
+                        <input type="text" class="form-control col-sm-12">
                     </div>
                     <div class="form-group col-md-3">
                         <h4 for="date">District</h4>
-                        <input type="text" class="form-control col-sm-12" name="guru_dist">
+                        <input type="text" class="form-control col-sm-12">
                     </div>
                     <div class="form-group col-md-12">
                         <h4 for="date">Address Guru <small>(In Case of Kinner/Hijra)</small></h4>
-                        <textarea class="form-control form-warning" rows="2" name="guru_address"></textarea>
+                        <textarea class="form-control form-warning" rows="2"></textarea>
                     </div>
-
-
                     <div class="form-group col-md-12">
                         <hr>
                         <h4 for="date" style="margin-bottom: 12px;">15. Source of Income : Please Tick (√), and furnish details : </h4>
                     </div>
                     <div class="form-group col-md-5 procedure">
                         <span>
-                            <input type="radio" name="income" value="Begging" checked="">
+                            <input type="radio" name="blue" checked="">
                             <b class="radio-h4">Begging</b>										
                         </span>
                         <span>
-                            <input type="radio" name="income" value="Sex Work">
+                            <input type="radio" name="blue">
                             <b class="radio-h4">Sex Work </b>										
                         </span>	
                         <span>
-                            <input type="radio" name="income" value="Employed in any Organization">
+                            <input type="radio" name="blue">
                             <b class="radio-h4">Employed in any Organization </b>										
                         </span>	
                         <span>
-                            <input type="radio" name="income" value="Badhai">
+                            <input type="radio" name="blue">
                             <b class="radio-h4">Badhai </b>										
                         </span>	 				
                     </div>
                     <div class="form-group col-md-7">
-                       <input type="file" class="form-control col-sm-12" name="income_file"  id="income_file" onchange="validateFile('income_file');">
-                            <span id="income_file_error"></span>
-                        <span>income proof</span>
-                    </div>	
-
-
-
+                        <textarea class="form-control form-warning" rows="6" placeholder="detail(if any)"></textarea>
+                    </div>								
                     <div class="form-group col-md-12">
                         <hr>
                     </div>
                     <div class="form-group col-md-4">
                         <h4 for="date">16. Age</h4>
-                        <input type="text" class="form-control col-sm-6"  name="age">
+                        <input type="text" class="form-control col-sm-6">
                     </div>
                     <div class="form-group col-md-4">
                         <h4 for="date">17. Date Of Birth <small>(as per birth certificate</small></h4>
-                        <input type="text" class="form-control col-sm-6"  name="dob">
+                        <input type="text" class="form-control col-sm-6">
                     </div>
                     <div class="form-group col-md-4">
                         <h4 for="date">18. Phone No </h4>
-                        <input type="text" class="form-control col-sm-6" name="mobile">
+                        <input type="text" class="form-control col-sm-6">
                     </div>	
-
-
                     <div class="form-group col-md-12">
                         <h4>19. Any Criminal/Civil Case pending against you, if “YES”, please furnish details
                             <span>
-                                <input type="radio" name="criminal_status" value="yes"  onclick="checkFileDiv('criminal_status')">
+                                <input type="radio" name="blue" checked>
                                 <b class="radio-h4">Yes</b>										
                             </span>
                             <span>
-                                <input type="radio"  name="criminal_status" value="no" checked onclick="checkFileDiv('criminal_status')">
+                                <input type="radio" name="blue">
                                 <b class="radio-h4">No </b>										
                             </span>	
                         </h4>
-                        <span id="criminal_status_div" style="display: none;">
-                            <textarea class="form-control form-warning" rows="2" name="criminal_details"></textarea>
-                        </span>
+                        <textarea class="form-control form-warning" rows="2"></textarea>
                     </div>
-
-
                     <div class="form-group col-md-12">
                         <hr>
                         <h4 for="date">20. Are you been a victim of any of the following matter, if “YES” Please furnish details any of the following</h4>
                     </div>
-                    <div class="row">                            
+                    <div class="row">
+                            
                         <div class="form-group col-md-5 doc" style="margin-left: 30px">
                             <h4 for="email">Bullying 
                                 <span>
-                                    <input type="radio" name="bullying_status" value="yes"  onclick="checkFileDiv('bullying_status')">
+                                    <input type="radio" name="blue" checked>
                                     <b class="radio-h4">Yes</b>										
                                 </span>
                                 <span>
-                                    <input type="radio" name="bullying_status" value="no" checked onclick="checkFileDiv('bullying_status')">
+                                    <input type="radio" name="blue">
                                     <b class="radio-h4">No </b>										
                                 </span>	
                             </h4>
                         </div>
-                        <span id="bullying_status_div" style="display: none;">
-                            <div class="form-group col-md-4 doc" >                                
-                                <div class="options" style="">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file" name="bullying_file"  id="bullying_file" onchange="validateFile('bullying_file',this);">
+                        <div class="form-group col-md-4 doc">
+                            <input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+                        </div>
+                        <div class="form-group col-md-2 doc">
+                            <ul class="thumbnails">
+                                <li>
+                                    <a title="Group photo 1">
+                                        <img src="images/profilepic.png" class="profilepic">
+                                    </a>
+                                    <div class="options" style="">
+                                        <div class="options" style="background: #ff00fa;color:#fff">
+                                        Upload
+                                        <input type="file" onchange="readURL(this);">
                                     </div>
-                                </div>
-                             <span id="bullying_file_error"></span>
-                            </div>
-                            <div class="form-group col-md-2 doc">
-                                <ul class="thumbnails">
-                                    <li>
-                                        <a title="Group photo 1">
-                                            <img src="images/profilepic.png" class="profilepic" id="bullying_file_src">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-
-                    <div class="row">                            
+                    <div class="row">
+                            
                         <div class="form-group col-md-5 doc" style="margin-left: 30px">
                             <h4 for="email">Police Harassment (in any form)
                                 <span>
-                                    <input type="radio" name="police_status" value="yes"  onclick="checkFileDiv('police_status')">
+                                    <input type="radio" name="blue" checked>
                                     <b class="radio-h4">Yes</b>										
                                 </span>
                                 <span>
-                                    <input type="radio" name="police_status" value="no" checked onclick="checkFileDiv('police_status')">
+                                    <input type="radio" name="blue">
                                     <b class="radio-h4">No </b>										
                                 </span>	
                             </h4>
                         </div>
-                        <span id="police_status_div" style="display: none;">
-                            <div class="form-group col-md-4 doc">
-                                <div class="options" style="">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file"name="police_file"  id="police_file" onchange="validateFile('police_file',this);">
+                        <div class="form-group col-md-4 doc">
+                            <input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+                        </div>
+                        <div class="form-group col-md-2 doc">
+                            <ul class="thumbnails">
+                                <li>
+                                    <a title="Group photo 1">
+                                        <img src="images/profilepic.png" class="profilepic">
+                                    </a>
+                                    <div class="options" style="">
+                                        <div class="options" style="background: #ff00fa;color:#fff">
+                                        Upload
+                                        <input type="file" onchange="readURL(this);">
                                     </div>
-                                </div>
-                                <span id="police_file_error"></span>
-                            </div>
-                            <div class="form-group col-md-2 doc">
-                                <ul class="thumbnails">
-                                    <li>
-                                        <a title="Group photo 1">
-                                            <img src="images/profilepic.png" class="profilepic" id="police_file_src">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-
                     <div class="row">										
                         <div class="form-group col-md-5 doc" style="margin-left: 30px">
                             <h4 for="email">Discrimination from any Authority(in any establishment or public places )
                                 <span>
-                                    <input type="radio" name="disc_status" value="yes"  onclick="checkFileDiv('disc_status')">
+                                    <input type="radio" name="blue" checked>
                                     <b class="radio-h4">Yes</b>										
                                 </span>
                                 <span>
-                                    <input type="radio" name="disc_status" value="no" checked onclick="checkFileDiv('disc_status')">
+                                    <input type="radio" name="blue">
                                     <b class="radio-h4">No </b>										
                                 </span>	
                             </h4>
                         </div>
-                        <span id="disc_status_div" style="display: none;">
-                            <div class="form-group col-md-4 doc">
-                                <div class="options" style="">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file"  name="disc_file"  id="disc_file" onchange="validateFile('disc_file',this);">
+                        <div class="form-group col-md-4 doc">
+                            <input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+                        </div>
+                        <div class="form-group col-md-2 doc">
+                            <ul class="thumbnails">
+                                <li>
+                                    <a title="Group photo 1">
+                                        <img src="images/profilepic.png" class="profilepic">
+                                    </a>
+                                    <div class="options" style="">
+                                        <div class="options" style="background: #ff00fa;color:#fff">
+                                        Upload
+                                        <input type="file" onchange="readURL(this);">
                                     </div>
-                                </div>
-                                <span id="disc_file_error"></span>
-                            </div>
-                            <div class="form-group col-md-2 doc">
-                                <ul class="thumbnails">
-                                    <li>
-                                        <a title="Group photo 1">
-                                            <img src="images/profilepic.png" class="profilepic" id="disc_file_src">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-
                     <div class="row">										
                         <div class="form-group col-md-5 doc" style="margin-left: 30px">
                             <h4 for="email">Family or Social torture. 
                                 <span>
-                                    <input type="radio"name="family_status" value="yes"  onclick="checkFileDiv('family_status')">
+                                    <input type="radio" name="blue" checked>
                                     <b class="radio-h4">Yes</b>										
                                 </span>
                                 <span>
-                                    <input type="radio" name="family_status" value="no" checked onclick="checkFileDiv('family_status')">
+                                    <input type="radio" name="blue">
                                     <b class="radio-h4">No </b>										
                                 </span>	
                             </h4>
                         </div>
-                        <span  id="family_status_div" style="display: none;">
-                            <div class="form-group col-md-4 doc">
-                                <div class="options" style="">
-                                    <div class="options" style="background: #ff00fa;color:#fff">
-                                        Upload<input type="file" name="family_file"  id="family_file" onchange="validateFile('family_file',this);">
+                        <div class="form-group col-md-4 doc">
+                            <input type="text" class="form-control col-sm-12" placeholder="detail (if any)">
+                        </div>
+                        <div class="form-group col-md-2 doc">
+                            <ul class="thumbnails">
+                                <li>
+                                    <a title="Group photo 1">
+                                        <img src="images/profilepic.png" class="profilepic">
+                                    </a>
+                                    <div class="options" style="">
+                                        <div class="options" style="background: #ff00fa;color:#fff">
+                                        Upload
+                                        <input type="file" onchange="readURL(this);">
                                     </div>
-                                </div>
-                                <span id="family_file_error"></span>
-                            </div>
-                            <div class="form-group col-md-2 doc">
-                                <ul class="thumbnails">
-                                    <li>
-                                        <a title="Group photo 1">
-                                            <img src="images/profilepic.png" class="profilepic" id="family_file_src">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-
                     <div class="row">
                         <div class="form-group col-md-12"><hr> </div>
                         <div class="form-group col-md-6 doc">
-                            <h4>5. Signature of the surveyor. </h4>
-                            <select id="e1" class="form-select2" required name="surbay_sign">
-                                <option value="Bikram Baruah">Bikram Baruah</option>
-                                <option value="Debakanya Doley">Debakanya Doley</option>
-                                <option value="Arjun Gupta">Arjun Gupta</option>
-                                <option value="Iftikar Ahmed">Iftikar Ahmed</option>
+                        <h4>5. Signature of the surveyor. </h4>
+                            <select id="e1" class="form-select2">
+                                <option value="AL">Bikram Baruah</option>
+                                <option value="AR">Debakanya Doley</option>
+                                <option value="IL">Arjun Gupta</option>
+                                <option value="IA">Iftikar Ahmed</option>
                             </select>
                         </div>
-
                         <div class="form-group col-md-6 doc">
                           <h4>Signature of the Transgender or Left thumb impression </h4>
                             <ul class="thumbnails">
                                 <li>
                                     <a title="Group photo 1">
-                                        <img src="images/profilepic.png" class="profilepic" id="user_sign_src">
+                                        <img src="images/profilepic.png" class="profilepic">
                                     </a>
                                     <div class="options" style="">
                                         <div class="options" style="background: #ff00fa;color:#fff">
-                                            Upload<input type="file" name="user_sign"  id="user_sign" onchange="validateFile('user_sign',this);">
-                                        </div>
+                                        Upload
+                                        <input type="file" onchange="readURL(this);">
+                                    </div>
                                     </div>
                                 </li>
                             </ul>
-                                        <span id="user_sign_error"></span>
                         </div>
                     </div>
                     <div class="form-group col-md-12">
-                        <button class="btn btn-success" name="submit" value="submit">Submit</button>
+                        <button class="btn btn-success">Submit</button>
                         <!-- <a href="#" class="btn btn-default">Cancel</a> -->
                         <!-- <a class="btn btn-primary">Edit</a> -->
                     </div>
@@ -1423,18 +1319,18 @@ function showMsg($msg)
       $().UItoTop({ easingType: 'easeOutQuart' });
     });
     
-    // function readURL(input) {
-    //         if (input.files && input.files[0]) {
-    //             var reader = new FileReader();
+    function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-    //             reader.onload = function (e) {
-    //                 $('.blah')
-    //                     .attr('src', e.target.result);
-    //             };
+                reader.onload = function (e) {
+                    $('.blah')
+                        .attr('src', e.target.result);
+                };
 
-    //             reader.readAsDataURL(input.files[0]);
-    //         }
-    //     }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
   </script>
 
   <?php

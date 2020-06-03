@@ -1,7 +1,6 @@
 <script>
 	function fileTest(input,id) {
-	    readURL(input,id);
-	    validateFile(id);
+	    validateFile(id,input);
 	}
 	function readURL(input,id) {
 	    if (input.files && input.files[0]) {
@@ -17,14 +16,21 @@
 	    }
 	}
 
-	function validateFile(file_id) {
+	function validateFile(file_id,input) {
 	    $("#"+file_id+"_error").html("");
 	    var file_size = $("#"+file_id)[0].files[0].size;
 	    if(file_size>2097152) {
 	      $("#"+file_id+"_error").html("<b style='color:red'>File size is greater than 1.5 MB</b>");
 	      $("#"+file_id).val('');
 	      return false;
-	    } 
+	    }	
+
+	    var ext = $("#"+file_id).val().split('.').pop().toLowerCase();
+		if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {		    
+	      $("#"+file_id+"_error").html("<b style='color:red'>Only jpg and png format are allowed to upload</b>");
+	      $("#"+file_id).val('');
+		}    
+	    readURL(input,file_id); 
 	    return true;
 	}
 

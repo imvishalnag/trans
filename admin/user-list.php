@@ -1,7 +1,10 @@
 <?php include "php/auth.php" ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include "include/head.php"; ?>
+<?php 
+	include "include/head.php"; 
+
+?>
 	<!-- Adjustable Styles -->
 	<link rel="stylesheet" href="lib/css/DT_bootstrap.css">
 
@@ -39,76 +42,36 @@
 							<table cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped" id="example">
 								<thead>
 									<tr>
+										<th>Sl No</th>
 										<th>User Name</th>
-										<th>Address</th>
-										<th>Phone</th>
+										<th>Mobile</th>
 										<th class="text-center">Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="odd gradeX">
-										<td>Unknown name</td>
-										<td>Guwahati, Assam</td>
-										<td>+95 95487635</td>
-										<td class="center">
-											<a href="user-detail.php" class="label label-success">View Detail</a>
-											<a class="label label-danger">Delete</a>
-										</td>
-									</tr>
-									<tr class="odd gradeX">
-										<td>Unknown name</td>
-										<td>Guwahati, Assam</td>
-										<td>+95 95487635</td>
-										<td class="center">
-											<a href="user-detail.php" class="label label-success">View Detail</a>
-											<a class="label label-danger">Delete</a>
-										</td>
-									</tr>
-									<tr class="odd gradeX">
-										<td>Unknown name</td>
-										<td>Guwahati, Assam</td>
-										<td>+95 95487635</td>
-										<td class="center">
-											<a href="user-detail.php" class="label label-success">View Detail</a>
-											<a class="label label-danger">Delete</a>
-										</td>
-									</tr>
-									<tr class="odd gradeX">
-										<td>Unknown name</td>
-										<td>Guwahati, Assam</td>
-										<td>+95 95487635</td>
-										<td class="center">
-											<a href="user-detail.php" class="label label-success">View Detail</a>
-											<a class="label label-danger">Delete</a>
-										</td>
-									</tr>
-									<tr class="odd gradeX">
-										<td>Unknown name</td>
-										<td>Guwahati, Assam</td>
-										<td>+95 95487635</td>
-										<td class="center">
-											<a href="user-detail.php" class="label label-success">View Detail</a>
-											<a class="label label-danger">Delete</a>
-										</td>
-									</tr>
-									<tr class="odd gradeX">
-										<td>Unknown name</td>
-										<td>Guwahati, Assam</td>
-										<td>+95 95487635</td>
-										<td class="center">
-											<a href="user-detail.php" class="label label-success">View Detail</a>
-											<a class="label label-danger">Delete</a>
-										</td>
-									</tr>
-									<tr class="odd gradeX">
-										<td>Unknown name</td>
-										<td>Guwahati, Assam</td>
-										<td>+95 95487635</td>
-										<td class="center">
-											<a href="user-detail.php" class="label label-success">View Detail</a>
-											<a class="label label-danger">Delete</a>
-										</td>
-									</tr>
+									<?php
+									$sql_users = "SELECT `users`.`id` as user_id, `users`.`mobile` as mobile, `user_details`.`name` AS name FROM `users` INNER JOIN `user_details` ON  `user_details`.`user_id`=`users`.`id`";
+
+									if ($res_users = $connect->query($sql_users) ) {
+										if ($res_users->num_rows > 0) {
+											$user_count = 1;
+											while ($row_user = $res_users->fetch_assoc()) {
+												print "<tr>
+												<td>$user_count</td>
+												<td>$row_user[name]</td>
+												<td>$row_user[mobile]</td>
+												<td>
+													<a href='#' class='label label-success'>View Detail</a>
+													<a class='label label-danger'>Delete</a></td>
+												</tr>";
+												$user_count++;
+											}
+										}else{
+											print "<tr><td colspan='4' align='center'>No Users Found</td></tr>";
+										}
+									}
+									?>
+									
 								</tbody>
 							</table>
 
