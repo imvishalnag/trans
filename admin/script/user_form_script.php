@@ -1,7 +1,7 @@
 <script>
 	function fileTest(input,id) {
 	    readURL(input,id);
-	    // validateFile(id);
+	    validateFile(id);
 	}
 	function readURL(input,id) {
 	    if (input.files && input.files[0]) {
@@ -17,7 +17,7 @@
 	    }
 	}
 
-	function validateFile(input) {
+	function validateFile(file_id,input_box_) {
 	    $("#file_error").html("");
 	    $(".demoInputBox").css("border-color","#F0F0F0");
 	    var file_size = $('#file')[0].files[0].size;
@@ -35,8 +35,28 @@
 		var doctor = $("input[name='phy_status']:checked").val();
 		if (doctor == 'yes') {
 			$("#doctor_div").show();
+			$('#doctor_div').find('input, select, textarea').each(function() {
+				$(this).attr("required", "true");
+		    });
 		}else{			
 			$("#doctor_div").hide();
+			$('#doctor_div').find('input, select, textarea').each(function() {
+				$(this).attr("required", "false");
+		    });
+		}
+	}
+
+	//present address check with permanent address
+	function checkAddress() {
+		var p_address = $("input[name='p_address_same']:checked").val();
+		if (p_address == 'yes') {
+			$("#r_address").val($("#p_address").val());
+			$("#r_pin").val($("#p_pin").val());
+			$("#r_dist").val($("#p_dist").val());
+		}else{
+			$("#r_address").val('');
+			$("#r_pin").val('');
+			$("#r_dist").val('');		
 		}
 	}
 
@@ -45,12 +65,42 @@
 		var file = $("input[name='"+id+"']:checked").val();
 		if (file == 'yes') {
 			$("#"+id+"_div").show();
+			$("#"+id+"_div").find('input, select, textarea, file').each(function() {
+				$(this).attr("required", "true");
+		    });
 		}else{			
 			$("#"+id+"_div").hide();
+			$("#"+id+"_div").find('input, select, textarea, file').each(function() {
+				$(this).attr("required", "false");
+		    });
 		}
 	}
 
 	//qualification
-	
+	var qualification_count = 1;
+	function qualificationAdd() {
+		var html = `<span id="${qualification_count}div"><div class="form-group col-md-6">
+					<h4 for="email">Name of the School/College/University</h4>
+					<input type="text" class="form-control col-sm-12" name="q_name[]">
+				</div>
+				<div class="form-group col-md-2">
+					<h4 for="date">Passing Year </h4>
+					<input type="text" class="form-control col-sm-12" name="q_year[]">
+				</div>
+				<div class="form-group col-md-2">
+					<h4 for="date">Proof </h4>
+					<input type="file" class="form-control col-sm-12" name="q_file[]">
+				</div>
+				<div class="form-group col-md-2">
+					<button class="btn btn-danger" style="margin-top: 37px;margin-bottom:5px" onclick="qualificationRemove(${qualification_count})">+ Remove</button>
+				</div>
+				</span>`;
+			qualification_count++;
+		$("#qualification_div").append(html);
+	}
+
+	function qualificationRemove(id) {
+		$("#"+id+"div").remove()
+	}
 
 </script>

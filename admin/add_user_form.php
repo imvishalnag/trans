@@ -35,10 +35,10 @@
 					<div class="wdgt wdgt-primary">
 						<div class="wdgt-header"><i class="fa fa-table"></i>User Form</div>
 						<div class="wdgt-body tbl" style="padding-bottom:10px;">
-							<form role="form" enctype="multipart/form-data" method="post" action="">
+							<form  enctype="multipart/form-data" method="post" action="aaa.ph">
 								<div class="form-group col-md-5 col-xs-6">
 									<h4 for="email">1. Name <small>(assigned at birth)</small></h4>
-									<input type="text" class="form-control col-sm-12" name="name">
+									<input type="text" class="form-control col-sm-12" name="name" required>
 									<h4 for="date">2. Father Name </h4>
 									<input type="text" class="form-control col-sm-12" name="father_name">
 								</div>
@@ -53,17 +53,18 @@
 									<ul class="thumbnails">
 										<li>
 											<a title="Group photo 1">
-												<img src="../images/profilepic.png" class="profilepic" id="user_image_src">
+												<img src="../images/profilepic.png" class="profilepic" id="user_image_src" >
 											</a>
 											<div class="options" style="background: #403f3fad;">
-												<input type="file" name="user_image" id="user_image" onchange="fileTest(this,'user_image')">
+												<input type="file" name="user_image" id="user_image" onchange="fileTest(this,'user_image')" >
 											</div>
 										</li>
 									</ul>
+									<span id="user_image_error"></span>
 								</div>								
 								<div class="form-group col-md-8 col-xs-12" style="margin-bottom: 20px;">
 									<h4>5. Preferred Category<small>Under the definition of Transgender, been recognized under NALSA Judgment (Supra)</small></h4>
-									<select id="e1" class="form-select2" name="catgegory">
+									<select id="e1" class="form-select2" name="catgegory" required="">
 										<option value="Alabama" selected>Alabama</option>
 										<option value="Arkansas">Arkansas</option>
 										<option value="Illinois">Illinois</option>
@@ -81,39 +82,45 @@
 										<option value="Wisconsin">Wisconsin</option>
 									</select>
 								</div>
+
+
 								<div class="form-group col-md-12">
 									<hr>
 									<h4>6. Permanent Address</h4>
 								</div>
 								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Address</h4>
-									<textarea class="form-control form-warning" rows="4" id="p_address" name="p_address"></textarea>
+									<textarea class="form-control form-warning" rows="4" id="p_address" name="p_address" required=""></textarea>
 								</div>
 								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Pincode</h4>
-									<input type="text" class="form-control col-sm-6" placeholder="Pin" id="p_pin" name="p_pin">
+									<input type="text" class="form-control col-sm-6" placeholder="Pin" id="p_pin" name="p_pin" required="">
 									<h4 for="date">District</h4>
-									<input type="text" class="form-control col-sm-6" placeholder="Dist" id="p_dist" name="p_dist">
+									<input type="text" class="form-control col-sm-6" placeholder="Dist" id="p_dist" name="p_dist" required="">
 								</div>
 								<div class="form-group col-md-12">
 									<h4>7. Present Address</h4>
 								</div>
+
+
 								<div class="form-group col-md-12" style="padding: 11px!important;">
-									<input type="checkbox" id="p_address_same"> if present address is same as permerant address
+									<input type="checkbox" id="p_address_same" value="yes" name="p_address_same" onclick="checkAddress()"> if present address is same as permerant address
 								</div>
 								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Present Address</h4>
-									<textarea class="form-control form-warning" rows="4" id="r_address" name="r_address"></textarea>
+									<textarea class="form-control form-warning" rows="4" id="r_address" name="r_address" required=""></textarea>
 								</div>
 								<div class="form-group col-md-6 col-xs-6">
 									<h4 for="date">Pincode</h4>
-									<input type="text" class="form-control col-sm-6" placeholder="Pin" id="r_pin" name="r_pin">
+									<input type="text" class="form-control col-sm-6" placeholder="Pin" id="r_pin" name="r_pin" required="">
 									<h4 for="date">District</h4>
-									<input type="text" class="form-control col-sm-6" placeholder="Dist" id="r_dist" name="r_dist">
+									<input type="text" class="form-control col-sm-6" placeholder="Dist" id="r_dist" name="r_dist" required="">
 								</div>
 								<div class="form-group col-md-12">
 									<hr>
 								</div>
+
+
 								<div class="form-group col-md-12">
 									<h4 for="date">8. Gharana Details <small>(In Case of Kinner/Hijra)</small></h4>
 									<textarea class="form-control form-warning" rows="2" name="gh_details"></textarea>
@@ -178,6 +185,9 @@
 									<hr>
 									<h4>10. Do you have any of the following documents ? if “YES”, Tick (Yes) & submit a copy of the same</h4>
 								</div>
+
+
+
 								<div class="row">
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.a. Birth Certificate</h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
@@ -192,22 +202,10 @@
 									</div>
 
 									<div class="form-group col-md-4 col-xs-4 doc" id="birth_status_div" style="display: none">
-										<input type="file" class="form-control col-sm-12" name="birth_file" required>
+										<input type="file" class="form-control col-sm-12" name="birth_file" >
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="date">10.b. Election Voter</h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc"> 
@@ -221,21 +219,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="voter_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="voter_file" required>
+										<input type="file" class="form-control col-sm-12" name="voter_file" >
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
 										
 								<div class="row">
@@ -251,24 +236,11 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="pan_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="pan_file" required>
+										<input type="file" class="form-control col-sm-12" name="pan_file" >
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">
-										
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"> <h4 for="email">10.d. Adhaar Card </h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
 										<span>
@@ -281,24 +253,11 @@
 										</span>
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="aadhar_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="aadhar_file" required>
+										<input type="file" class="form-control col-sm-12" name="aadhar_file" >
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">
-										
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.e. Ration Card / BPL Card</h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
 										<span>
@@ -311,24 +270,12 @@
 										</span>
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="ration_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="ration_file" required>
+										<input type="file" class="form-control col-sm-12" name="ration_file" >
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
+
 								<div class="row">
-										
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.f. Bank Password </h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
 										<span>
@@ -341,22 +288,10 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="bank_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="bank_file" required>
+										<input type="file" class="form-control col-sm-12" name="bank_file">
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">		
 									<div class="form-group col-md-4 col-xs-4  doc" style="margin-left: 30px"><h4 for="email">10.g. Mnrega Card </h4></div>
 									<div class="form-group col-md-2 col-xs-2  doc">
@@ -372,20 +307,8 @@
 									<div class="form-group col-md-4 col-xs-4  doc" id="mnrg_status_div" style="display: none;">
 										<input type="file" class="form-control col-sm-12" name="mnrg_file">
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2  doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">		
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.h. Passport </h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
@@ -399,22 +322,10 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="pass_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="pass_file" required>
+										<input type="file" class="form-control col-sm-12" name="pass_file">
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>
+
 								<div class="row">		
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.i. High School Leaving Certificate </h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
@@ -428,22 +339,10 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="hslc_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="hslc_file" required>
+										<input type="file" class="form-control col-sm-12" name="hslc_file">
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>	
+
 								<div class="row">	
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.j. H.S Passed Certificate </h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
@@ -457,22 +356,11 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="hs_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="hs_file" required>
+										<input type="file" class="form-control col-sm-12" name="hs_file">
 									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div> -->
 								</div>	
+
+
 								<div class="row">
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.k. Gradution Passed Certificate </h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
@@ -486,22 +374,10 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="graduation_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="graduation_file" required>
-									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div>		 -->						
-								</div>	
+										<input type="file" class="form-control col-sm-12" name="graduation_file" >
+									</div>					
+								</div>
+
 								<div class="row">											
 									<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 30px"><h4 for="email">10.l. Name Changed Affidavit </h4></div>
 									<div class="form-group col-md-2 col-xs-2 doc">
@@ -515,21 +391,8 @@
 										</span>	
 									</div>
 									<div class="form-group col-md-4 col-xs-4 doc" id="name_chng_status_div" style="display: none;">
-										<input type="file" class="form-control col-sm-12" name="name_chng_file" required> 
-									</div>
-									<!-- <div class="form-group col-md-2 col-xs-2 doc">
-										<ul class="thumbnails">
-											<li>
-												<a title="Group photo 1">
-													<img src="../images/profilepic.png" class="profilepic">
-												</a>
-												<div class="options" style="background: #403f3fad;">
-													<a class="group1 cboxElement" href="lib/img/gallery/1.jpg" ><i class="icon icon-eye-open"></i></a>
-													<a href="#"><i class="icon icon-trash"></i></a>
-												</div>
-											</li>
-										</ul>
-									</div>	 -->								
+										<input type="file" class="form-control col-sm-12" name="name_chng_file"> 
+									</div>								
 								</div>			
 									<div class="form-group col-md-12">
 									<hr>
@@ -552,53 +415,60 @@
 										<button class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px" onclick="qualificationAdd()">+ Add More</button>
 									</div>
 								</span>
-								<!-- <div class="form-group col-md-12">
+
+
+								<div class="form-group col-md-12">
 									<h4>12. Other Qualification (if any), furnish details & submit a copy of the same : 
 										<span>
-											<input type="radio" name="blue" checked>
+											<input type="radio" name="other_q_status"  value="yes" onclick="checkFileDiv('other_q_status')">
 											<b class="radio-h4">Yes</b>										
 										</span>
 										<span>
-											<input type="radio" name="blue">
+											<input type="radio" name="other_q_status" value="no" checked onclick="checkFileDiv('other_q_status')">
 											<b class="radio-h4">No </b>										
 										</span>	</h4>
-								</div> -->
-								<!-- <div class="form-group col-md-6">
-									<h4 for="email">Name of the institution</h4>
-									<input type="text" class="form-control col-sm-12">
 								</div>
-								<div class="form-group col-md-2">
-									<h4 for="date">Passing Year </h4>
-									<input type="text" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-2">
-									<h4 for="date">Detail </h4>
-									<input type="file" class="form-control col-sm-12">
-								</div>
-								<div class="form-group col-md-2">
-									<button class="btn btn-primary" style="margin-top: 37px;margin-bottom:5px">+ Add More</button>
-								</div> -->
+								<span id="other_q_status_div" style="display: none">
+									<div class="form-group col-md-6">
+										<h4 for="email">Name of the institution</h4>
+										<input type="text" class="form-control col-sm-12" name="other_q_name">
+									</div>
+									<div class="form-group col-md-2">
+										<h4 for="date">Passing Year </h4>
+										<input type="text" class="form-control col-sm-12" name="other_q_year">
+									</div>
+									<div class="form-group col-md-2">
+										<h4 for="date">Detail </h4>
+										<input type="file" class="form-control col-sm-12" name="other_q_file">
+									</div>
+								</span>
+
+
 								<div class="form-group col-md-12 procedure">
 									<hr>
 									<h4>13. Whether Name or Gender Changed in documents (if “YES”, please furnish details)
 										<span>
-											<input type="radio" name="gender_status" value="yes" >
+											<input type="radio" name="gender_status" value="yes"  onclick="checkFileDiv('gender_status')">
 											<b class="radio-h4">Yes</b>										
 										</span>
 										<span>
-											<input type="radio" name="gender_status" value="no" checked>
+											<input type="radio" name="gender_status" value="no" checked onclick="checkFileDiv('gender_status')">
 											<b class="radio-h4">No </b>										
 										</span>	
 									</h4>
 								</div>
-								<div class="form-group col-md-7">
-									<h4> Changed Name</h4>
-									<input type="text" class="form-control col-sm-12" name="change_name">
-								</div>
-								<div class="form-group col-md-5">
-									<h4 for="date">Detail</h4>
-									<input type="file" class="form-control col-sm-12" name="change_file">
-								</div>					
+								<span id="gender_status_div" style="display: none;">
+									<div class="form-group col-md-7" >
+										<h4> Changed Name</h4>
+										<input type="text" class="form-control col-sm-12" name="change_name" >
+									</div>
+									<div class="form-group col-md-5">
+										<h4 for="date">Detail</h4>
+										<input type="file" class="form-control col-sm-12" name="change_file" >
+									</div>	
+								</span>		
+
+
 								<div class="form-group col-md-12">
 									<hr>
 									<h4>14. Details of Guru (In case, if you are under the shelter of Guru)</h4>
@@ -619,6 +489,8 @@
 									<h4 for="date">Address Guru <small>(In Case of Kinner/Hijra)</small></h4>
 									<textarea class="form-control form-warning" rows="2" name="guru_address"></textarea>
 								</div>
+
+
 								<div class="form-group col-md-12">
 									<hr>
 									<h4 for="date" style="margin-bottom: 12px;">15. Source of Income : Please Tick (√), and furnish details : </h4>
@@ -664,15 +536,17 @@
 								<div class="form-group col-md-12">
 									<h4>19. Any Criminal/Civil Case pending against you, if “YES”, please furnish details
 										<span>
-											<input type="radio" name="criminal_status" value="yes" >
+											<input type="radio" name="criminal_status" value="yes"  onclick="checkFileDiv('criminal_status')">
 											<b class="radio-h4">Yes</b>										
 										</span>
 										<span>
-											<input type="radio" name="criminal_status" value="no" checked>
+											<input type="radio" name="criminal_status" value="no" checked onclick="checkFileDiv('criminal_status')">
 											<b class="radio-h4">No </b>										
 										</span>	
 									</h4>
-									<textarea class="form-control form-warning" rows="2" name="criminal_details"></textarea>
+									<span id="criminal_status_div" style="display: none;">
+										<textarea class="form-control form-warning" rows="2" name="criminal_details"></textarea>
+									</span>
 								</div>
 								<div class="form-group col-md-12">
 									<hr>
@@ -680,19 +554,20 @@
 								</div>
 								<div class="row">
 										
-									<div class="form-group col-md-5 doc" style="margin-left: 30px">
-										<h4 for="email">Bullying 
-											<span>
-												<input type="radio" name="bullying_status" value="yes" >
-												<b class="radio-h4">Yes</b>										
-											</span>
-											<span>
-												<input type="radio" name="bullying_status" value="no" checked>
-												<b class="radio-h4">No </b>										
-											</span>	
-										</h4>
+									<div class="form-group col-md-4 doc" style="margin-left: 30px">
+										<h4 for="email">Bullying </h4>
 									</div>
-									<div class="form-group col-md-4 doc">
+									<div class="form-group col-md-2 doc">
+										<span>
+											<input type="radio" name="bullying_status" value="yes"  onclick="checkFileDiv('bullying_status')">
+											<b class="radio-h4">Yes</b>										
+										</span>
+										<span>
+											<input type="radio" name="bullying_status" value="no" checked onclick="checkFileDiv('bullying_status')">
+											<b class="radio-h4">No </b>										
+										</span>	
+									</div>
+									<div class="form-group col-md-4 doc" id="bullying_status_div" style="display: none;">
 										<input type="file" class="form-control col-sm-12" name="bullying_file">
 									</div>
 									<!-- <div class="form-group col-md-2 doc">
@@ -710,19 +585,20 @@
 								</div>
 								<div class="row">
 										
-									<div class="form-group col-md-5 doc" style="margin-left: 30px">
-										<h4 for="email">Police Harassment (in any form)
-											<span>
-												<input type="radio" name="police_status" value="yes" >
-												<b class="radio-h4">Yes</b>										
-											</span>
-											<span>
-												<input type="radio" name="police_status" value="no" checked>
-												<b class="radio-h4">No </b>										
-											</span>	
-										</h4>
+									<div class="form-group col-md-4 doc" style="margin-left: 30px">
+										<h4 for="email">Police Harassment (in any form)</h4>
 									</div>
-									<div class="form-group col-md-4 doc">
+									<div class="form-group col-md-2 doc">
+										<span>
+											<input type="radio" name="police_status" value="yes"  onclick="checkFileDiv('police_status')">
+											<b class="radio-h4">Yes</b>										
+										</span>
+										<span>
+											<input type="radio" name="police_status" value="no" checked onclick="checkFileDiv('police_status')">
+											<b class="radio-h4">No </b>										
+										</span>	
+									</div>
+									<div class="form-group col-md-4 doc" id="police_status_div" style="display: none;">
 										<input type="file" class="form-control col-sm-12" name="police_file">
 									</div>
 									<!-- <div class="form-group col-md-2 doc">
@@ -739,19 +615,21 @@
 									</div> -->
 								</div>
 								<div class="row">										
-									<div class="form-group col-md-5 doc" style="margin-left: 30px">
-										<h4 for="email">Discrimination from any Authority(in any establishment or public places )
-											<span>
-												<input type="radio" name="disc_status" value="yes" >
-												<b class="radio-h4">Yes</b>										
-											</span>
-											<span>
-												<input type="radio" name="disc_status" value="no" checked>
-												<b class="radio-h4">No </b>										
-											</span>	
+									<div class="form-group col-md-4 doc" style="margin-left: 30px">
+										<h4 for="email">Discrimination from any Authority(in any establishment or public places )	
 										</h4>
 									</div>
-									<div class="form-group col-md-4 doc">
+									<div class="form-group col-md-2 doc">
+										<span>
+											<input type="radio" name="disc_status" value="yes"  onclick="checkFileDiv('disc_status')">
+											<b class="radio-h4">Yes</b>										
+										</span>
+										<span>
+											<input type="radio" name="disc_status" value="no" checked onclick="checkFileDiv('disc_status')">
+											<b class="radio-h4">No </b>										
+										</span>
+									</div>
+									<div class="form-group col-md-4 doc" id="disc_status_div" style="display: none;">
 										<input type="file" class="form-control col-sm-12" name="disc_file">
 									</div>
 									<!-- <div class="form-group col-md-2 doc">
@@ -768,19 +646,21 @@
 									</div> -->
 								</div>
 								<div class="row">										
-									<div class="form-group col-md-5 doc" style="margin-left: 30px">
+									<div class="form-group col-md-4 doc" style="margin-left: 30px">
 										<h4 for="email">Family or Social torture. 
-											<span>
-												<input type="radio" name="family_status" value="yes" >
-												<b class="radio-h4">Yes</b>										
-											</span>
-											<span>
-												<input type="radio" name="family_status" value="no" checked>
-												<b class="radio-h4">No </b>										
-											</span>	
 										</h4>
 									</div>
-									<div class="form-group col-md-4 doc">
+									<div class="form-group col-md-2 doc">
+										<span>
+											<input type="radio" name="family_status" value="yes"  onclick="checkFileDiv('family_status')">
+											<b class="radio-h4">Yes</b>										
+										</span>
+										<span>
+											<input type="radio" name="family_status" value="no" checked onclick="checkFileDiv('family_status')">
+											<b class="radio-h4">No </b>										
+										</span>	
+									</div>
+									<div class="form-group col-md-4 doc" id="family_status_div" style="display: none;">
 										<input type="file" class="form-control col-sm-12" name="family_file">
 									</div>
 									<!-- <div class="form-group col-md-2 doc">
@@ -814,8 +694,8 @@
 									<hr>
 								</div>
 								<div class="form-group col-md-12">
-									<a href="#" class="btn btn-default">Cancel</a>
-									<a class="btn btn-primary">Edit</a>
+									<!-- <a href="#" class="btn btn-default">Cancel</a> -->
+									<button class="btn btn-success">Submit</button>
 								</div>
 							</form>
 						</div>
