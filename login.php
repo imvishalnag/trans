@@ -361,7 +361,7 @@
           <div class="row">
             
             <div class="col-sm-6 col-md-6 col-sm-offset-3">
-              <form id="contact_form" name="contact_form" class="login" action="insta/pay.php" method="post">
+              <form id="contact_form" name="contact_form" class="login" action="user-form.php" method="post">
 
                 <div class="row">
                   <div class="col-sm-12">
