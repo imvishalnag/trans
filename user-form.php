@@ -115,7 +115,7 @@ function showMsg($msg)
                 <li><a href="donation.php">Donation</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
-                <li><a href="login.php" style="border: 1px solid #ff00fa;">Login </a></li>
+                <li><a href="web/php/user_logout.php" style="border: 1px solid #ff00fa;">Logout</a></li>
                 </li>
               </ul>
             </nav>
