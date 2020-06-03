@@ -5,8 +5,11 @@
 			</div>
 		</div>
 		<div class="accordion-group">
-			<div class="accordion-heading"><a class="sbtn" href="user-list.php"><span class="fa fa-tasks"></span><span class="full">User List</span></a>
-			</div>
+			<div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#cc-ui1"><span class="fa fa-tasks"></span><span class="full">User</span><span class="caret"></span></a></div>
+			<div id="cc-ui1" class="accordion-body collapse"><div class="accordion-inner">
+				<a href="add_user_form.php" class="sbtn">Add User</a>
+				<a href="user-list.php" class="sbtn">User List</a>
+			</div></div>
 		</div>
 		<div class="accordion-group">
 			<div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#cc-ui1"><span class="fa fa-tasks"></span><span class="full">Press Gallery</span><span class="caret"></span></a></div>
