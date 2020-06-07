@@ -73,7 +73,7 @@ include "config/db_connect.php";
   <div id="wrapper">
     
     <!-- Header -->
-    <header class="header"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <header class="header"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" id="header-area">
       <div class="header-top bg-theme-colored sm-text-center">
         <div class="container">
           <div class="row">
@@ -124,7 +124,7 @@ include "config/db_connect.php";
     <!-- end Header -->
 
     <!-- Start main-content -->
-    <div class="main-content">
+    <div class="main-content" id="main_content">
       <!-- Section: inner-header -->
       <section class="inner-header">
         <div class="container pt-0 pb-0">
@@ -280,7 +280,7 @@ include "config/db_connect.php";
                     </div>	
 
                     <?php
-                        if (!empty($row_user_details['p_address_id'])) {
+                        if (!empty($_SESSION['user_ata'])) {
                             $sql_document = "SELECT * FROM `documents` WHERE `user_id`='$_SESSION[user_ata]'";
                             if ($res_document = $connect->query($sql_document)) {
                                 $row_document = $res_document->fetch_assoc();
@@ -334,7 +334,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
                             <?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['voter_id'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -360,7 +360,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
 							<?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['pan_card'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -386,7 +386,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
 							<?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['aadhar_card'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -412,7 +412,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
 							<?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['ration_card'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -438,7 +438,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
 							<?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['bank_pass'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -464,7 +464,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
 							<?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['mnrg_card'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -490,7 +490,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
                             <?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['passport'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -516,7 +516,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
                             <?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['hslc_cert'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -542,7 +542,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
                             <?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['hs_cert'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -568,7 +568,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
                             <?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['graduation_cert'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -594,7 +594,7 @@ include "config/db_connect.php";
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
                             <?php
-                                if (!empty($row_document['birth'])) {
+                                if (!empty($row_document['name_chng'])) {
                                    print '<ul class="thumbnails">
                                         <li>
                                             <a title="Group photo 1">
@@ -615,7 +615,7 @@ include "config/db_connect.php";
                         </div>
 
                         <?php
-                        if (!empty($row_user_details['p_address_id'])) {
+                        if (!empty($_SESSION['user_ata'])) {
                             $sql_qualification = "SELECT * FROM `qualification` WHERE `user_id`='$_SESSION[user_ata]'";
                             if ($res_qualification = $connect->query($sql_qualification)) {
                                 while($row_qualification = $res_qualification->fetch_assoc()){
@@ -926,9 +926,25 @@ include "config/db_connect.php";
                     </div>
                     <div class="row">
 						<div class="form-group col-md-12">
-							<a class="btn btn-primary">Edit your form</a>
+							<a class="btn btn-primary" href="user_form_edit.php">Edit your form</a>
+                            <a class="btn btn-primary" onclick="printDiv()">Print</a>
 						</div>
                     </div>
+                    <script>
+                    function printDiv() 
+                        {
+                            var printContents = document.getElementById("main_content").innerHTML;
+                            var originalContents = document.body.innerHTML;
+
+                            document.body.innerHTML = printContents;
+
+                            window.print();
+                        }
+                        
+                        window.onafterprint = function(event) {
+                                window.location.href="user-form-view.php";
+                        };
+                    </script>
                 </form>
             </div>	
 
@@ -942,7 +958,7 @@ include "config/db_connect.php";
     <!-- end main-content -->
     
     <!-- Footer -->
-    <footer id="footer" class="footer" data-bg-img="images/footer-bg.png" data-bg-color="#25272e">
+    <footer id="footer" class="footer" data-bg-img="images/footer-bg.png" data-bg-color="#25272e" id="footer-area">
       <div class="container pt-70 pb-40">
         <div class="row border-bottom-black">
           <div class="col-sm-6 col-md-4">
@@ -1273,6 +1289,8 @@ include "config/db_connect.php";
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+    
   </script>
 </body>
 

@@ -61,8 +61,8 @@
 												<td>$row_user[name]</td>
 												<td>$row_user[mobile]</td>
 												<td>
-													<a href='#' class='label label-success'>View Detail</a>
-													<a class='label label-danger'>Delete</a></td>
+													<a href='user-form-view.php?user_id=$row_user[user_id]' class='label label-success'>View Detail</a>
+												</td>
 												</tr>";
 												$user_count++;
 											}
