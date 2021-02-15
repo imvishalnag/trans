@@ -29,7 +29,6 @@
         margin: 0 auto;
     }
     .trans-r {
-        width: 80%;
         display: table;
         margin: 0 auto;
     }
@@ -97,6 +96,10 @@
     }
     #contact_form {
         padding: 10px 0!important;
+    }
+    .login .form-group .btn-side {
+    	right: 17px!important;
+    	bottom: 2px!important;
     }
 }
 

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
+<!-- Mirrored from thememascot.net/demo/personal/s/fundpro/v2.0/demo/features-header-style1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Oct 2018 12:43:44 GMT -->
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- Meta Tags -->
+
+<!-- google -->
+
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 <meta name="description" content="FundPro - Nonprofit, Crowdfunding & Charity HTML5 Template" />
 <meta name="keywords" content="charity,crowdfunding,nonprofit,orphan,Poor,funding,fundrising,ngo,children" />
 <meta name="author" content="ThemeMascot" />
-<!-- google -->
-<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
 <!-- Page Title -->
 <title>All Assam Transgender  Association</title>
 
@@ -59,12 +63,21 @@
 <style type="text/css">
 
 
-
-.mb-30 {
-    margin-bottom: 4px !important;
-    font-size: 16px;
-    text-align: justify;
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.428571;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    margin-left: 113px;
 }
+
+
 
  .bg-theme-colored .sm-text-center .btn {
     margin-top: 20px!important;
@@ -110,20 +123,28 @@
 }
   
 @media screen and (max-width: 800px) {
+
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.428571;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    margin-left:1px;
+}
+
   .merah {
 
     font-size: 20px!important;
     margin-left: 18px!important;
     margin-top: 161px!important;
   }
-
-.mb-30 {
-    margin-bottom: 4px !important;
-    font-size: 16px;
-    text-align: justify;
-    margin-left: -1px!important;
-}
-
 
 #gallery h2{
     font-family: 'Playfair Display', serif;
@@ -251,10 +272,10 @@ span {
     font-size: 18px!important;
 }
 
+
 .list-border span {
     font-size: 12px!important;
 }
-
 
 }
 
@@ -344,17 +365,10 @@ span {
       <div class="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
         <div class="container">
           <nav id="menuzord-right" class="menuzord default no-bg">
-            <a class="menuzord-brand pull-left flip" href="index.html"><img src="images/logo.jpg" alt=""></a>
+            <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
             <ul class="menuzord-menu"> 
-              <li class="active">
-              <a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="donation.php">Donation</a></li>
-              <li><a href="gallery.php">Gallery</a></li>
-              <li><a href="contact_us.html">Contact Us</a></li>
-              <li><a href="login.php" style="border: 1px solid #ff00fa;">Login </a></li>
-              </li>
+                <?php include "include/link.php" ?>
+                <style>.menuzord .menuzord-menu > li:nth-child(2) > a{background-color: #ff00fa !important; color: #fff;}</style>
             </ul>
           </nav>
         </div>
@@ -371,7 +385,7 @@ span {
         <div class="section-content text-center">
           <div class="row"> 
             <div class="col-md-6 col-md-offset-3 text-center">
-              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">Contact Us</h2>
+              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">About Us</h2>
               <ol class="breadcrumb text-center mt-10 white">
                 
               </ol>
@@ -382,131 +396,41 @@ span {
     </section>
     
     <!-- Section: About -->
-    <section class="divider">
-      <div class="container pt-0">
-        <div class="row mb-60 bg-deep">
-          <div class="col-sm-12 col-md-4">
-            <div class="contact-info text-center pt-60 pb-60 border-right">
-              <i class="fa fa-phone font-36 mb-10 text-theme-colored"></i>
-              <h4>Call Us</h4>
-              <h6 style="  color:#000000!important;
-    font-family:inherit!important;
-    font-size:14px;
-}">Mobile no:  9678 4387 19</h6>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-            <div class="contact-info text-center  pt-60 pb-60 border-right">
-              <i class="fa fa-map-marker font-36 mb-10 text-theme-colored"></i>
-              <h4>Address</h4>
-              <h6 style="  color:#000000!important;
-    font-family:inherit!important;
-    font-size:14px;
-}">Pandu, Cabin
-Near Rly B-G office.
-Dist:- Kamrup(M). P.O:- Pandu.
-Pin:- 781012, Guwahati (Assam).</h6>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4 mera-gray">
-            <div class="contact-info text-center  pt-60 pb-60">
-              <i class="fa fa-envelope font-36 mb-10 text-theme-colored" style="color: #fb00c3!important;"></i>
-              <h4>Email</h4>
-              <h6 style="  color:#000000!important;
-    font-family:inherit!important;
-    font-size:14px;
-}">baruahbidhan2@gmail.com</h6>
-            </div>
-          </div>
-        </div>
-        <div class="row pt-10">
-          <div class="col-md-5">
-          <h4 class="mt-0 mb-30">Find Our Location</h4>
-          <!-- Google Map HTML Codes -->
-          <div 
-            data-address="121 King Street, Melbourne Victoria 3000 Australia"
-            data-popupstring-id="#popupstring1"
-            class="map-canvas autoload-map"
-            data-mapstyle="style2"
-            data-height="400"
-            data-latlng="-37.817314,144.955431"
-            data-title="sample title"
-            data-zoom="12"
-            data-marker="images/map-icon-blue.png">
-          </div>
-          <div class="map-popupstring hidden" id="popupstring1">
-            <div class="text-center">
-              <h3>CharityPress Office</h3>
-              <p>121 King Street, Melbourne Victoria 3000 Australia</p>
-            </div>
-          </div>
-          <!-- Google Map Javascript Codes -->
-          <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
-          <script src="js/google-map-init.js"></script>
-          </div>
-          <div class="col-md-7 col-xs-12">
-            <h3 class="mt-0 mb-30">Interested in discussing?</h3><br>
-            <!-- Contact Form -->
-           <form id="contact_form" name="contact_form" class="" action="http://thememascot.net/demo/personal/s/fundpro/v2.0/demo/includes/sendmail.php" method="post">
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <img class="pull-left mr-15 thumbnail" src=images\about\about.jpg alt="">
+             </div>
 
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="form_name">Name</label>
-                    <input id="form_name" name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="form_email">Email</label>
-                    <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
-                  </div>
-                </div>
-              </div>                
-              <div class="row">
-              
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="form_phone">Phone</label>
-                    <input id="form_phone" name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
-                  </div>
-                </div>
-              </div>
+ <div class="col-md-12">
+             <p style="text-align: justify;">The All Assam Transgender Association was formed on 25th Dec 2015, recently after the Honourable Supreme court verdict on Transgender..<br>
+(NALSA vs U.O.I)/WRIT PETITION (Civil):- 400 of 2012 & WRIT PETITION (Civil):- 604 of 2013.<br>
+<br>
 
-              <div class="form-group">
-                <label for="form_name">Message</label>
-                <textarea id="form_message" name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
-                <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Send your message</button>
-              </div>
-            </form> 
 
-            <!-- Contact Form Validation-->
-            <script type="text/javascript">
-              $("#contact_form").validate({
-                submitHandler: function(form) {
-                  var form_btn = $(form).find('button[type="submit"]');
-                  var form_result_div = '#form-result';
-                  $(form_result_div).remove();
-                  form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                  var form_btn_old_msg = form_btn.html();
-                  form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                  $(form).ajaxSubmit({
-                    dataType:  'json',
-                    success: function(data) {
-                      if( data.status == 'true' ) {
-                        $(form).find('.form-control').val('');
-                      }
-                      form_btn.prop('disabled', false).html(form_btn_old_msg);
-                      $(form_result_div).html(data.message).fadeIn('slow');
-                      setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                    }
-                  });
-                }
-              });
-            </script>
+The Association was not given any registration under the Societies Act, the then govt. with an excuse that, this will highly disturb the society & it's peace. But even though the deprived community built this association to fight for their right, dignity & prestige; under ARTICLE 19(c) of the Part-III of the constitution of INDIA, which provides freedom to form Union & Association. Throughout the territory of India.<br>
+With the hope of livelihood & establishment of rights, the community formed this Association in the name & style.. "All Assam Transgender Association".<br>
+Later on, this Association was supported by many legal counsels of Higher court & Supreme court of the country along with renowned Medical practitioners.<br>
+<br>
+
+
+This association has formed not only to hold up its rights but for the purposes of helping the helpless. As mentioned the association is providing free legal counselling & steps to those being mentioned below:<br>
+#Women victims of Domestic Violence, Rape, Trafficking.<br>
+#Children victims of Domestic Violence & Sexual Abuse, Child Labourers.<br>
+#Transgender & Transsexual victims of Domestic Violence & Sexual Abuse or Rape.<br>
+<br>
+
+
+The Transgender community of Northeast India has always been sidelined by the other TG communities of Indian states & were never invited to any valuable discussion or meeting because the other TGs of other states remaining highly influential to higher authorities, International Trust & NGOs. For which, as a result, the community of Northeast always being sidelined & marginalised; and remains empty hand to maintain their Fooding, Clothing etc. Therefore, this Association is formed to deal with all those issues & will forward it's helping hand to maintain the dignity, prestige & respect of the TGs & of Northeast India.
+</p>
+</div>
+         
+            <div class="separator separator-rouned">
+              <i class="fa fa-cog"></i>
+            </div>
+         
+          
           </div>
         </div>
       </div>
@@ -536,12 +460,12 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
           <div class="widget dark">
             <h5 class="widget-title">Useful Links</h5>
             <ul class="list angle-double-right list-border">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="donation.html">Donation</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-               <li><a href="contact_us.html">Contact Us</a></li>               
+              <li><a href="index.php">Home</a></li>
+              <li><a href="About_us.php">About Us</a></li>
+              <li><a href="news.php">News</a></li>
+              <li><a href="donation.php">Donation</a></li>
+              <li><a href="gallery.php">Gallery</a></li>
+               <li><a href="contact_us.php">Contact Us</a></li>               
             </ul>
           </div>
         </div>
@@ -600,7 +524,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
       <div class="container pt-15 pb-10">
         <div class="row">
           <div class="col-md-6">
-         <p>© 2018 All Assam Transgender Association <a href="http://www.webinfotech.net.in" title="">Web Infotech</a> </p>
+     <p>© 2018 All Assam Transgender Association <a href="http://www.webinfotech.net.in" title="">Web Infotech</a> </p>
           </div>
         
         </div>
@@ -613,27 +537,9 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
 
 <!-- Footer Scripts -->
 <!-- JS | Custom script for all pages -->
-<script src="js/custom.js">
-  
-<script type="text/javascript">
-                  $(document).ready(function() {
-                    /*
-                    var defaults = {
-                        containerID: 'toTop', // fading element id
-                      containerHoverID: 'toTopHover', // fading element hover id
-                      scrollSpeed: 1200,
-                      easingType: 'linear' 
-                    };
-                    */
-                    
-                    $().UItoTop({ easingType: 'easeOutQuart' });
-                    
-                  });
-                </script>
-
-
-</script>
+<script src="js/custom.js"></script>
 
 </body>
 
+<!-- Mirrored from thememascot.net/demo/personal/s/fundpro/v2.0/demo/features-header-style1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Oct 2018 12:43:44 GMT -->
 </html>

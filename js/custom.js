@@ -1690,7 +1690,7 @@ var THEMEMASCOT = {};
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
                     rtl: THEMEMASCOT.isRTL.check(),
-                    autoplay: true,
+                    autoplay: false,
                     autoplayTimeout: data_duration,
                     loop: true,
                     items: 4,

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<!-- Developer : Porag Bikomiya -(Web Infotech)-->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <!-- Meta Tags -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
@@ -9,8 +10,6 @@
 <meta name="keywords" content="charity,crowdfunding,nonprofit,orphan,Poor,funding,fundrising,ngo,children" />
 <meta name="author" content="ThemeMascot" />
 <!-- google -->
-
-
 <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 <!-- Page Title -->
 <title>All Assam Transgender  Association</title>
@@ -61,6 +60,11 @@
 
 
 
+.mb-30 {
+    margin-bottom: 4px !important;
+    font-size: 16px;
+    text-align: justify;
+}
 
  .bg-theme-colored .sm-text-center .btn {
     margin-top: 20px!important;
@@ -106,20 +110,19 @@
 }
   
 @media screen and (max-width: 800px) {
- 
+  .merah {
 
-   .merah {
     font-size: 20px!important;
     margin-left: 18px!important;
-    margin-top: 68px!important;
+    margin-top: 161px!important;
+  }
+
+.mb-30 {
+    margin-bottom: 4px !important;
+    font-size: 16px;
+    text-align: justify;
+    margin-left: -1px!important;
 }
- 
-
-.list-border span {
-    font-size: 12px!important;
-}
-
-
 
 
 #gallery h2{
@@ -248,6 +251,11 @@ span {
     font-size: 18px!important;
 }
 
+.list-border span {
+    font-size: 12px!important;
+}
+
+
 }
 
 
@@ -339,7 +347,7 @@ span {
             <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
             <ul class="menuzord-menu"> 
                 <?php include "include/link.php" ?>
-                <style>.menuzord .menuzord-menu > li:nth-child(4) > a{background-color: #ff00fa !important; color: #fff;}</style>
+                <style>.menuzord .menuzord-menu > li:nth-child(8) > a{background-color: #ff00fa !important; color: #fff;}</style>
             </ul>
           </nav>
         </div>
@@ -356,7 +364,7 @@ span {
         <div class="section-content text-center">
           <div class="row"> 
             <div class="col-md-6 col-md-offset-3 text-center">
-              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">Donation</h2>
+              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">Contact Us</h2>
               <ol class="breadcrumb text-center mt-10 white">
                 
               </ol>
@@ -367,162 +375,131 @@ span {
     </section>
     
     <!-- Section: About -->
-    <section class="login-area" style="margin-top:20px;" >
-	<div class="container">
-		<div class="row">
-			
-      <div class="col-sm-6 col-md-6 col-sm-offset-3">
-        <form id="contact_form" name="contact_form" class="" action="insta/pay.php" method="post">
-
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Full Name</label>
-                    <input id="form_name" name="name" class="form-control" type="text" placeholder="Enter Name" required="">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Father Name</label>
-                    <input id="form_name" name="fname" class="form-control" type="text" placeholder="Enter Name" required="">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Date of Birth</label>
-                     <input type="date" id="form_name" name="dob" class="form-control" placeholder="Enter Name" required="">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Sex</label>
-                     <select name="sex" class="form-control" required="">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Transgender">Transgender</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_email">Phone</label>
-                    <input id="form_email" name="phone" class="form-control required email" type="tel" placeholder="Enter Phone">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_email">Email</label>
-                    <input id="form_email" name="email" class="form-control required email" type="email" placeholder="Enter Email">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Institution</label>
-                    <select name="inst" class="form-control" required="">
-                      <option value="School">School</option>
-                      <option value="College">College</option>
-                      <option value="University">University</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Name of the Institution</label>
-                    <input id="form_name" name="inst_name" class="form-control" type="text" placeholder="Enter Institution" required="">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Purpose</label>
-                     <select name="purpose" class="form-control" required="">
-                      <option value="Research">Research</option>
-                      <option value="Project">Project</option>
-                      <option value="Assignment">Assignment</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Address</label>
-                    <input id="form_name" name="address" class="form-control" type="text" placeholder="Enter Address" required="">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">State</label>
-                    <input id="form_name" name="state" class="form-control" type="text" placeholder="Enter State" required="">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">District</label>
-                    <input id="form_name" name="district" class="form-control" type="text" placeholder="Enter District" required="">
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">PIN</label>
-                    <input id="form_name" name="pin" class="form-control" type="text" placeholder="Enter PIN" required="">
-                  </div>
-                </div>
-                 <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="form_name">Amount</label>
-                    <input id="form_name" name="amount" class="form-control" type="text" placeholder="Enter amount" required="">
-                  </div>
-                </div>
-              </div> 
-              <p>I hereby declare that:<br>
-The material/information which I will receive from this organisation is subjected to the copyright. And no part of the materials/information may be reproduced or made public except for the cause mentioned above.  And, any such violation may subject to the penalty under law.
-</p>
-              <div class="form-group" align="middle">
-                <button type="submit" class="btn btn-default btn-flat btn-theme-colored" name="submit">Proceed to Pay and Submission</button>
-              </div>
-              <p>Note: The payment’s received herein is for the non-profit motive. And the same will be for the upliftment of the transgender community</p>
-            </form> 
-            <hr style="color: pink">
-      </div>
-      <hr>
-      
-      <div class="col-sm-6 col-md-6 col-sm-offset-3">
-        <h4 style="text-align: center;">Or Account Pay</h4>
-        <form action="#" class="eduread-register-form text-center" style="background-color: #fff;">
-          <p class="lead img-responsive"><img src="images/bank.png"></p>
-          <hr>
-          <p style="color: #000; font-size: 17px;">All Assam Transgender Association</p>
-          <p style="color: #000; font-size: 17px;">Bank Name : HDFC BANK</p>
-          <p style="color: #000; font-size: 17px;">BRANCH : Maligaon</p>
-          <p style="color: #000; font-size: 17px;">ACCOUNT NO : 50200038002714</p>
-          <p style="color: #000; font-size: 17px;">IFSC CODE : HDFC0002282</p>
-            <p style="color: #000; font-size: 17px;">BRANCH CODE : 2282</p> 
-        </form>
-      </div>												
-		</div>
-	</div>
-</section>
-    <section style="margin-top:-80px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-           
-            <div class="welcome">
-    <div class="container">
-      <div class="welcome-top">
-        <!--<img src="images/couple.jpg" class="img-responsive" alt="">-->
-        <div class="row">
-          <div class="col-lg-12 text-left">
-            <h1 class="merah"><span style="color:#f305e9;">Donate Us to Contact-</span> 9678 4387 19</h1>
+    <section class="divider">
+      <div class="container pt-0">
+        <div class="row mb-60 bg-deep">
+          <div class="col-sm-12 col-md-4">
+            <div class="contact-info text-center pt-60 pb-60 border-right">
+              <i class="fa fa-phone font-36 mb-10 text-theme-colored"></i>
+              <h4>Call Us</h4>
+              <h6 style="  color:#000000!important;
+    font-family:inherit!important;
+    font-size:14px;
+}">Mobile no:  9678 4387 19</h6>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <div class="contact-info text-center  pt-60 pb-60 border-right">
+              <i class="fa fa-map-marker font-36 mb-10 text-theme-colored"></i>
+              <h4>Address</h4>
+              <h6 style="  color:#000000!important;
+    font-family:inherit!important;
+    font-size:14px;
+}">Pandu, Cabin
+Near Rly B-G office.
+Dist:- Kamrup(M). P.O:- Pandu.
+Pin:- 781012, Guwahati (Assam).</h6>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 mera-gray">
+            <div class="contact-info text-center  pt-60 pb-60">
+              <i class="fa fa-envelope font-36 mb-10 text-theme-colored" style="color: #fb00c3!important;"></i>
+              <h4>Email</h4>
+              <h6 style="  color:#000000!important;
+    font-family:inherit!important;
+    font-size:14px;
+}">baruahbidhan2@gmail.com</h6>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>  </div>
-         
-            <div class="separator separator-rouned ">
-              <i class="fa fa-cog meralogo"></i>
+        <div class="row pt-10">
+          <div class="col-md-5">
+          <h4 class="mt-0 mb-30">Find Our Location</h4>
+          <!-- Google Map HTML Codes -->
+          <div 
+            data-address="121 King Street, Melbourne Victoria 3000 Australia"
+            data-popupstring-id="#popupstring1"
+            class="map-canvas autoload-map"
+            data-mapstyle="style2"
+            data-height="400"
+            data-latlng="-37.817314,144.955431"
+            data-title="sample title"
+            data-zoom="12"
+            data-marker="images/map-icon-blue.png">
+          </div>
+          <div class="map-popupstring hidden" id="popupstring1">
+            <div class="text-center">
+              <h3>CharityPress Office</h3>
+              <p>121 King Street, Melbourne Victoria 3000 Australia</p>
             </div>
-         
-          
+          </div>
+          <!-- Google Map Javascript Codes -->
+          <!-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script> -->
+          <!-- <script src="js/google-map-init.js"></script> -->
+          </div>
+          <div class="col-md-7 col-xs-12">
+            <h3 class="mt-0 mb-30">Interested in discussing?</h3><br>
+            <!-- Contact Form -->
+           <form id="contact_form" name="contact_form" class="" action="" method="post">
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="form_name">Name</label>
+                    <input id="form_name" name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="form_email">Email</label>
+                    <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                  </div>
+                </div>
+              </div>                
+              <div class="row">
+              
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="form_phone">Phone</label>
+                    <input id="form_phone" name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form_name">Message</label>
+                <textarea id="form_message" name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
+                <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Send your message</button>
+              </div>
+            </form> 
+
+            <!-- Contact Form Validation-->
+            <!-- <script type="text/javascript">
+              $("#contact_form").validate({
+                submitHandler: function(form) {
+                  var form_btn = $(form).find('button[type="submit"]');
+                  var form_result_div = '#form-result';
+                  $(form_result_div).remove();
+                  form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+                  var form_btn_old_msg = form_btn.html();
+                  form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
+                  $(form).ajaxSubmit({
+                    dataType:  'json',
+                    success: function(data) {
+                      if( data.status == 'true' ) {
+                        $(form).find('.form-control').val('');
+                      }
+                      form_btn.prop('disabled', false).html(form_btn_old_msg);
+                      $(form_result_div).html(data.message).fadeIn('slow');
+                      setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
+                    }
+                  });
+                }
+              });
+            </script> -->
           </div>
         </div>
       </div>
@@ -530,16 +507,14 @@ The material/information which I will receive from this organisation is subjecte
   </div>
   <!-- end main-content -->
   
-  <!-- Footer -->
+   <!-- Footer -->
   <footer id="footer" class="footer" data-bg-img="images/footer-bg.png" data-bg-color="#25272e">
     <div class="container pt-70 pb-40">
       <div class="row border-bottom-black">
         <div class="col-sm-6 col-md-4">
           <div class="widget dark">
             <img class="mt-10 mb-20" alt="" src="images/logo-wide3.png" width="17%" style="margin-top: -20px!important;">
-            <div class="m-0 pl-10 pr-10"><i class="fa fa-map-marker text-theme-colored mr-5"></i> <a class="text-gray" href="#"> Pandu, Cabin, Near Rly B-G office.<br>
-Dist:- Kamrup(M). P.O:- Pandu.<br>
-Pin:- 781012, Guwahati (Assam).</a> </div>
+            <div class="m-0 pl-10 pr-10"><i class="fa fa-map-marker text-theme-colored mr-5"></i> <a class="text-gray" href="#"> Pandu, Cabin, Near Rly B-G office.<br>Dist:- Kamrup(M). P.O:- Pandu.<br>Pin:- 781012, Guwahati (Assam).</a> </div>
             <ul class="list-inline mt-5">
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored mr-5"></i> <a class="text-gray" href="#"> +91-96784-38719</a> </li>
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored mr-5"></i> <a class="text-gray" href="#">baruahbidhan2@gmail.com</a> </li>
@@ -563,9 +538,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
         </div>
         <div class="col-sm-6 col-md-4">
           <div class="widget dark">
-          
-
-<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTransgender2015%2F&tabs=timeline&width=300&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTransgender2015%2F&tabs=timeline&width=300&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
           </div>
         </div>
       </div>
@@ -573,7 +546,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
    <!--<div class="col-md-5"> -->
           <div class="widget dark">
          
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
               $('#mailchimp-subscription-form-footer').ajaxChimp({
                   callback: mailChimpCallBack,
                   url: '//thememascot.us9.list-manage.com/subscribe/post?u=a01f440178e35febc8cf4e51f&amp;id=49d6d30e1e'
@@ -592,7 +565,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
                   }
                   $mailchimpform.prepend($response);
               }
-            </script>
+            </script> -->
             <!-- Mailchimp Subscription Form Ends Here -->
           </div>
         <!-- </div> -->
@@ -616,7 +589,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
       <div class="container pt-15 pb-10">
         <div class="row">
           <div class="col-md-6">
-          <p>© 2018 All Assam Transgender Association <a href="http://www.webinfotech.net.in" title="">Web Infotech</a> </p>
+         <p>© 2018 All Assam Transgender Association <a href="http://www.webinfotech.net.in" title="">Web Infotech</a> </p>
           </div>
         
         </div>
@@ -630,22 +603,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
 <!-- Footer Scripts -->
 <!-- JS | Custom script for all pages -->
 <script src="js/custom.js">
-  
-<script type="text/javascript">
-                  $(document).ready(function() {
-                    /*
-                    var defaults = {
-                        containerID: 'toTop', // fading element id
-                      containerHoverID: 'toTopHover', // fading element hover id
-                      scrollSpeed: 1200,
-                      easingType: 'linear' 
-                    };
-                    */
-                    
-                    $().UItoTop({ easingType: 'easeOutQuart' });
-                    
-                  });
-                </script>
+
 
 
 </script>
