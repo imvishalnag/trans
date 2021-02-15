@@ -337,7 +337,7 @@ span {
               <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
               <ul class="menuzord-menu"> 
                 <?php include "include/link.php" ?>
-                <style>.menuzord .menuzord-menu > li:nth-child(5) > a{background-color: #ff00fa !important; color: #fff;}</style>
+                <style>.menuzord .menuzord-menu > li:nth-child(6) > a{background-color: #ff00fa !important; color: #fff;}</style>
               </ul>
             </nav>
           </div>
@@ -358,7 +358,7 @@ span {
         <div class="section-content text-center">
           <div class="row"> 
             <div class="col-md-6 col-md-offset-3 text-center">
-              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">Gallery</h2>
+              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">Certificate</h2>
               <ol class="breadcrumb text-center mt-10 white">
                 
               </ol>
@@ -368,58 +368,6 @@ span {
       </div>      
     </section>
     
-    
-    
-    
-    <!-- Section: Our Portfolio -->
-    <section id="gallery" class="">
-      <div class="container">
-        <div class="section-title text-center">
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <h2 class="line-bottom-center mt-0">Press <span class="text-theme-colored font-weight-600">Release</span></h2>
-              <div class="title-icon">
-                <i class="flaticon-attach"></i>
-              </div>
-             
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-
-            <!-- Portfolio Gallery Grid -->
-            <div id="grid" class="gallery-isotope grid-3 masonry gutter-10 clearfix">
-                
-            <?php
-                $sql ="SELECT * FROM press_gallery";
-                $result=mysqli_query($connect,$sql);
-                while ($row=mysqli_fetch_array($result)) {
-                    echo '<div class="gallery-item breakfast">
-                        <div class="thumb">
-                          <img class="img-fullwidth" style="height: 190px;" src="uploads/press/thumb/'.$row['image'].'" alt="project">
-                          <div class="overlay-shade"></div>
-                          <div class="portfolio-upper-part">
-                          <!--   <h4 class="font-22 mb-0">Title Place Here</h4>
-                            <h5 class="font-14 mt-0">- Photo</h5> -->
-                          </div>
-                        
-                          <div class="portfolio-view">
-                            <a class="image-popup-vertical-fit"  href="uploads/press/'.$row['image'].'">
-                              <i class="fa fa-camera font-24 text-theme-colored"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </div>';
-                    }
-            ?>
-              
-            </div>
-            <!-- End Portfolio Gallery Grid -->
-          </div>
-        </div>
-      </div>
-    </section>
 
 
    <section>
@@ -427,7 +375,7 @@ span {
           <div class="section-title text-center">
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
-              <h2 class="line-bottom-center mt-0">General <span class="text-theme-colored font-weight-600">Gallery</span></h2>
+              <h2 class="line-bottom-center mt-0">Our <span class="text-theme-colored font-weight-600">Certificate</span></h2>
               <div class="title-icon">
                 <i class="flaticon-attach"></i>
               </div>
@@ -441,28 +389,244 @@ span {
             
               <!-- Portfolio Gallery Grid -->
               <div id="grid" class="gallery-isotope grid-4 gutter clearfix">
-               <!-- Portfolio Item Start -->   
-                   <?php
-                $sql ="SELECT * FROM general_gallery ORDER BY id DESC";
-                $result=mysqli_query($connect,$sql);
-                while ($row=mysqli_fetch_array($result)) {
-                    echo '<div class="gallery-item photography">
-                  <div class="thumb"> 
-                    <img class="img-fullwidth" src="uploads/general/'.$row['image'].'" alt="project">
-                    <div class="overlay-shade"></div>
-                    <div class="icons-holder">
-                      <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                          <a data-lightbox="image" href="uploads/general/'.$row['image'].'"><i class="fa fa-search-plus"></i></a>
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/1.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/1.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
                         </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
                       </div>
-                    </div>
-                    <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
-                  </div>
-                </div>';
-                    }
-            ?>
-                <!-- Portfolio Item End -->
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/1.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/1.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/2.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/2.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/3.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/3.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/4.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/4.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/5.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/5.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/6.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/6.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/7.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/7.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/8.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/8.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/9.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/9.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/10.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/10.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/11.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/11.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/12.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/12.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
+                   <!-- Portfolio Item Start -->   
+                   <div class="gallery-item photography">
+                      <div class="thumb"> 
+                        <img class="img-fullwidth" src="images/certificate/13.jpg" alt="project">
+                        <div class="overlay-shade"></div>
+                        <div class="icons-holder">
+                          <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                              <a data-lightbox="image" href="images/certificate/13.jpg"><i class="fa fa-search-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <a class="hover-link" data-lightbox="images\portfolio\food1.jpg">View more</a>
+                      </div>
+                </div>
+                    <!-- Portfolio Item End -->
+                    
               </div>
               <!-- End Portfolio Gallery Grid -->
                           

@@ -5,19 +5,18 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!-- Meta Tags -->
+
+<!-- google -->
+
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 <meta name="description" content="FundPro - Nonprofit, Crowdfunding & Charity HTML5 Template" />
 <meta name="keywords" content="charity,crowdfunding,nonprofit,orphan,Poor,funding,fundrising,ngo,children" />
 <meta name="author" content="ThemeMascot" />
 
-
-<!-- google font-family -->
-
-
-<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 <!-- Page Title -->
-<title>All Assam Transgender Association</title>
+<title>All Assam Transgender  Association</title>
 
 <!-- Favicon and Touch Icons -->
 <link href="images/favicon.png" rel="shortcut icon" type="image/png">
@@ -64,6 +63,22 @@
 <style type="text/css">
 
 
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.428571;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    margin-left: 113px;
+}
+
+
+
  .bg-theme-colored .sm-text-center .btn {
     margin-top: 20px!important;
     /* padding-top: 6px; */
@@ -108,6 +123,22 @@
 }
   
 @media screen and (max-width: 800px) {
+
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.428571;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    margin-left:1px;
+}
+
   .merah {
 
     font-size: 20px!important;
@@ -115,28 +146,6 @@
     margin-top: 161px!important;
   }
 
-
-
-
-h1{
-
-      font-size: 26px;
-}
-
-h2{
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    line-height: 1.42857143;
-    color: #333333;
-    font-size: 16px;
-}
-
-/*mer img*/
-
-
-
-
-/*mera img end*/
 #gallery h2{
     font-family: 'Playfair Display', serif;
     font-weight: 600;
@@ -264,18 +273,6 @@ span {
 }
 
 
-
-
-
-
-.meraimghai a img {
-    border: none;
-    width: 100px;
-}*
-
-
-
-
 .list-border span {
     font-size: 12px!important;
 }
@@ -326,7 +323,7 @@ span {
 <body class="">
 <div id="wrapper">
   <!-- preloader -->
-  <!--<div id="preloader">
+ <!-- <div id="preloader">
     <div id="spinner">
       <div class="preloader-dot-loading">
         <div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
@@ -368,24 +365,16 @@ span {
       <div class="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
         <div class="container">
           <nav id="menuzord-right" class="menuzord default no-bg">
-            <a class="menuzord-brand pull-left flip" href="index.html"><img src="images/logo.jpg" alt=""></a>
+            <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
             <ul class="menuzord-menu"> 
-              <li class="active">
-              <a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="donation.php">Donation</a></li>
-              <li><a href="gallery.php">Gallery</a></li>
-              <li><a href="contact_us.html">Contact Us</a></li>
-              <li><a href="login.php" style="border: 1px solid #ff00fa;">Login </a></li>
-              </li>
+                <?php include "include/link.php" ?>
+                <style>.menuzord .menuzord-menu > li:nth-child(2) > a{background-color: #ff00fa !important; color: #fff;}</style>
             </ul>
           </nav>
         </div>
       </div>
     </div>
   </header>
-
   
   <!-- Start main-content -->
   <div class="main-content">
@@ -396,7 +385,7 @@ span {
         <div class="section-content text-center">
           <div class="row"> 
             <div class="col-md-6 col-md-offset-3 text-center">
-              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">News</h2>
+              <h2 class="text-theme-colored font-36" style="color:#ff00ba!important;">About Us</h2>
               <ol class="breadcrumb text-center mt-10 white">
                 
               </ol>
@@ -408,36 +397,37 @@ span {
     
     <!-- Section: About -->
     <section>
-      <div class="container meraimghai">
+      <div class="container">
         <div class="row">
-          <div class="col-md-12">
-           
-  <div class="welcome">
-    <div class="container">
-      <div class="welcome-top">
-        <!--<img src="images/couple.jpg" class="img-responsive" alt="">-->
-        <div class="row">
-          <div class="col-lg-12 text-left">
-            <h1 class="merapdef merah1">P D F Download Here</h1>
-            <h2 class="heading merapublic">Public Notice </h2>
-            <a href="images/IMG_20180119_0003.pdf" target="_blank"><img src="images/PDF_download_button.png" class="imgmera"></a>
-            
-            <h2  class="heading merapublic merah2">Appointment for Transgender sensitization Program cum Film Fest'2016</h2>
-            <a href="images/IMG_20180119_0004.pdf" target="_blank"><img src="images/PDF_download_button.png"></a>
-            <h2  class="heading merapublic merah2">The List of Contributor's for our Transgender Pride'2019</h2>
-            <a href="images/thanks.pdf" target="_blank"><img src="images/PDF_download_button.png"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> 
+          <div class="col-md-12 col-sm-12">
+            <img class="pull-left mr-15 thumbnail" src=images\about\about.jpg alt="">
+             </div>
+
+ <div class="col-md-12">
+             <p style="text-align: justify;">The All Assam Transgender Association was formed on 25th Dec 2015, recently after the Honourable Supreme court verdict on Transgender..<br>
+(NALSA vs U.O.I)/WRIT PETITION (Civil):- 400 of 2012 & WRIT PETITION (Civil):- 604 of 2013.<br>
+<br>
 
 
+The Association was not given any registration under the Societies Act, the then govt. with an excuse that, this will highly disturb the society & it's peace. But even though the deprived community built this association to fight for their right, dignity & prestige; under ARTICLE 19(c) of the Part-III of the constitution of INDIA, which provides freedom to form Union & Association. Throughout the territory of India.<br>
+With the hope of livelihood & establishment of rights, the community formed this Association in the name & style.. "All Assam Transgender Association".<br>
+Later on, this Association was supported by many legal counsels of Higher court & Supreme court of the country along with renowned Medical practitioners.<br>
+<br>
 
+
+This association has formed not only to hold up its rights but for the purposes of helping the helpless. As mentioned the association is providing free legal counselling & steps to those being mentioned below:<br>
+#Women victims of Domestic Violence, Rape, Trafficking.<br>
+#Children victims of Domestic Violence & Sexual Abuse, Child Labourers.<br>
+#Transgender & Transsexual victims of Domestic Violence & Sexual Abuse or Rape.<br>
+<br>
+
+
+The Transgender community of Northeast India has always been sidelined by the other TG communities of Indian states & were never invited to any valuable discussion or meeting because the other TGs of other states remaining highly influential to higher authorities, International Trust & NGOs. For which, as a result, the community of Northeast always being sidelined & marginalised; and remains empty hand to maintain their Fooding, Clothing etc. Therefore, this Association is formed to deal with all those issues & will forward it's helping hand to maintain the dignity, prestige & respect of the TGs & of Northeast India.
+</p>
 </div>
          
-            <div class="separator separator-rouned ">
-              <i class="fa fa-cog meralogo"></i>
+            <div class="separator separator-rouned">
+              <i class="fa fa-cog"></i>
             </div>
          
           
@@ -470,17 +460,16 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
           <div class="widget dark">
             <h5 class="widget-title">Useful Links</h5>
             <ul class="list angle-double-right list-border">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="About_us.php">About Us</a></li>
+              <li><a href="news.php">News</a></li>
               <li><a href="donation.php">Donation</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-               <li><a href="contact_us.html">Contact Us</a></li>               
+              <li><a href="gallery.php">Gallery</a></li>
+               <li><a href="contact_us.php">Contact Us</a></li>               
             </ul>
           </div>
         </div>
-        
-        <div class="col-sm-6 col-md-4 ">
+        <div class="col-sm-6 col-md-4">
           <div class="widget dark">
           
 
@@ -488,7 +477,6 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
           </div>
         </div>
       </div>
-
       
    <!--<div class="col-md-5"> -->
           <div class="widget dark">
@@ -536,7 +524,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
       <div class="container pt-15 pb-10">
         <div class="row">
           <div class="col-md-6">
-           <p>© 2018 All Assam Transgender Association <a href="http://www.webinfotech.net.in" title="">Web Infotech</a> </p>
+     <p>© 2018 All Assam Transgender Association <a href="http://www.webinfotech.net.in" title="">Web Infotech</a> </p>
           </div>
         
         </div>
@@ -549,26 +537,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
 
 <!-- Footer Scripts -->
 <!-- JS | Custom script for all pages -->
-<script src="js/custom.js">
-  
-<script type="text/javascript">
-                  $(document).ready(function() {
-                    /*
-                    var defaults = {
-                        containerID: 'toTop', // fading element id
-                      containerHoverID: 'toTopHover', // fading element hover id
-                      scrollSpeed: 1200,
-                      easingType: 'linear' 
-                    };
-                    */
-                    
-                    $().UItoTop({ easingType: 'easeOutQuart' });
-                    
-                  });
-                </script>
-
-
-</script>
+<script src="js/custom.js"></script>
 
 </body>
 

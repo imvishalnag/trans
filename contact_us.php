@@ -344,17 +344,10 @@ span {
       <div class="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
         <div class="container">
           <nav id="menuzord-right" class="menuzord default no-bg">
-            <a class="menuzord-brand pull-left flip" href="index.html"><img src="images/logo.jpg" alt=""></a>
+            <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
             <ul class="menuzord-menu"> 
-              <li class="active">
-              <a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="donation.php">Donation</a></li>
-              <li><a href="gallery.php">Gallery</a></li>
-              <li><a href="contact_us.html">Contact Us</a></li>
-              <li><a href="login.php" style="border: 1px solid #ff00fa;">Login </a></li>
-              </li>
+                <?php include "include/link.php" ?>
+                <style>.menuzord .menuzord-menu > li:nth-child(8) > a{background-color: #ff00fa !important; color: #fff;}</style>
             </ul>
           </nav>
         </div>
@@ -441,13 +434,13 @@ Pin:- 781012, Guwahati (Assam).</h6>
             </div>
           </div>
           <!-- Google Map Javascript Codes -->
-          <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
-          <script src="js/google-map-init.js"></script>
+          <!-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script> -->
+          <!-- <script src="js/google-map-init.js"></script> -->
           </div>
           <div class="col-md-7 col-xs-12">
             <h3 class="mt-0 mb-30">Interested in discussing?</h3><br>
             <!-- Contact Form -->
-           <form id="contact_form" name="contact_form" class="" action="http://thememascot.net/demo/personal/s/fundpro/v2.0/demo/includes/sendmail.php" method="post">
+           <form id="contact_form" name="contact_form" class="" action="" method="post">
 
               <div class="row">
                 <div class="col-sm-6">
@@ -484,7 +477,7 @@ Pin:- 781012, Guwahati (Assam).</h6>
             </form> 
 
             <!-- Contact Form Validation-->
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
               $("#contact_form").validate({
                 submitHandler: function(form) {
                   var form_btn = $(form).find('button[type="submit"]');
@@ -506,7 +499,7 @@ Pin:- 781012, Guwahati (Assam).</h6>
                   });
                 }
               });
-            </script>
+            </script> -->
           </div>
         </div>
       </div>
@@ -521,9 +514,7 @@ Pin:- 781012, Guwahati (Assam).</h6>
         <div class="col-sm-6 col-md-4">
           <div class="widget dark">
             <img class="mt-10 mb-20" alt="" src="images/logo-wide3.png" width="17%" style="margin-top: -20px!important;">
-            <div class="m-0 pl-10 pr-10"><i class="fa fa-map-marker text-theme-colored mr-5"></i> <a class="text-gray" href="#"> Pandu, Cabin, Near Rly B-G office.<br>
-Dist:- Kamrup(M). P.O:- Pandu.<br>
-Pin:- 781012, Guwahati (Assam).</a> </div>
+            <div class="m-0 pl-10 pr-10"><i class="fa fa-map-marker text-theme-colored mr-5"></i> <a class="text-gray" href="#"> Pandu, Cabin, Near Rly B-G office.<br>Dist:- Kamrup(M). P.O:- Pandu.<br>Pin:- 781012, Guwahati (Assam).</a> </div>
             <ul class="list-inline mt-5">
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored mr-5"></i> <a class="text-gray" href="#"> +91-96784-38719</a> </li>
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored mr-5"></i> <a class="text-gray" href="#">baruahbidhan2@gmail.com</a> </li>
@@ -536,20 +527,18 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
           <div class="widget dark">
             <h5 class="widget-title">Useful Links</h5>
             <ul class="list angle-double-right list-border">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="donation.html">Donation</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-               <li><a href="contact_us.html">Contact Us</a></li>               
+              <li><a href="index.php">Home</a></li>
+              <li><a href="About_us.php">About Us</a></li>
+              <li><a href="news.php">News</a></li>
+              <li><a href="donation.php">Donation</a></li>
+              <li><a href="gallery.php">Gallery</a></li>
+               <li><a href="contact_us.php">Contact Us</a></li>               
             </ul>
           </div>
         </div>
         <div class="col-sm-6 col-md-4">
           <div class="widget dark">
-          
-
-<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTransgender2015%2F&tabs=timeline&width=300&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTransgender2015%2F&tabs=timeline&width=300&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
           </div>
         </div>
       </div>
@@ -557,7 +546,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
    <!--<div class="col-md-5"> -->
           <div class="widget dark">
          
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
               $('#mailchimp-subscription-form-footer').ajaxChimp({
                   callback: mailChimpCallBack,
                   url: '//thememascot.us9.list-manage.com/subscribe/post?u=a01f440178e35febc8cf4e51f&amp;id=49d6d30e1e'
@@ -576,7 +565,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
                   }
                   $mailchimpform.prepend($response);
               }
-            </script>
+            </script> -->
             <!-- Mailchimp Subscription Form Ends Here -->
           </div>
         <!-- </div> -->
@@ -614,22 +603,7 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
 <!-- Footer Scripts -->
 <!-- JS | Custom script for all pages -->
 <script src="js/custom.js">
-  
-<script type="text/javascript">
-                  $(document).ready(function() {
-                    /*
-                    var defaults = {
-                        containerID: 'toTop', // fading element id
-                      containerHoverID: 'toTopHover', // fading element hover id
-                      scrollSpeed: 1200,
-                      easingType: 'linear' 
-                    };
-                    */
-                    
-                    $().UItoTop({ easingType: 'easeOutQuart' });
-                    
-                  });
-                </script>
+
 
 
 </script>

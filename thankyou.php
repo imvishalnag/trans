@@ -418,16 +418,9 @@ span {
       <div class="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
         <div class="container">
           <nav id="menuzord-right" class="menuzord default no-bg">
-            <a class="menuzord-brand pull-left flip" href="index.html"><img src="images/logo.jpg" alt=""></a>
+            <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
             <ul class="menuzord-menu"> 
-              <li class="active">
-              <a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="donation.php">Donation</a></li>
-              <li><a href="gallery.php">Gallery</a></li>
-              <li><a href="contact_us.html">Contact Us</a></li>
-              </li>
+              <?php include "include/link.php" ?>
             </ul>
           </nav>
         </div>
@@ -500,12 +493,12 @@ Pin:- 781012, Guwahati (Assam).</a> </div>
           <div class="widget dark">
             <h5 class="widget-title">Useful Links</h5>
             <ul class="list angle-double-right list-border">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="About_us.html">About Us</a></li>
-              <li><a href="news.html">News</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="About_us.php">About Us</a></li>
+              <li><a href="news.php">News</a></li>
               <li><a href="donation.php">Donation</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-               <li><a href="contact_us.html">Contact Us</a></li>               
+              <li><a href="gallery.php">Gallery</a></li>
+               <li><a href="contact_us.php">Contact Us</a></li>               
             </ul>
           </div>
         </div>
