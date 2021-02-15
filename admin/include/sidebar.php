@@ -12,6 +12,13 @@
 			</div></div>
 		</div>
 		<div class="accordion-group">
+			<div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#cc-ui5"><span class="fa fa-tasks"></span><span class="full">Employee List</span><span class="caret"></span></a></div>
+			<div id="cc-ui5" class="accordion-body collapse"><div class="accordion-inner">
+				<!-- <a href="add_user_form.php" class="sbtn">Add User</a> -->
+				<a href="employee-list.php" class="sbtn">Employee List</a>
+			</div></div>
+		</div>
+		<div class="accordion-group">
 			<div class="accordion-heading"><a class="sbtn" data-toggle="collapse" href="#cc-ui1"><span class="fa fa-tasks"></span><span class="full">Press Gallery</span><span class="caret"></span></a></div>
 			<div id="cc-ui1" class="accordion-body collapse"><div class="accordion-inner">
 				<a href="press_image_add.php" class="sbtn">Add Image</a>
