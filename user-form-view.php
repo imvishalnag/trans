@@ -94,17 +94,9 @@
         <div class="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
           <div class="container">
             <nav id="menuzord-right" class="menuzord default no-bg">
-              <a class="menuzord-brand pull-left flip" href="index.html"><img src="images/logo.jpg" alt=""></a>
+              <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
               <ul class="menuzord-menu"> 
-                <li class="active">
-                <a href="index.html">Home</a></li>
-                <li><a href="About_us.html">About Us</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="donation.php">Donation</a></li>
-                <li><a href="gallery.php">Gallery</a></li>
-                <li><a href="contact_us.html">Contact Us</a></li>
-                <li><a href="login.php" style="border: 1px solid #ff00fa;">Login </a></li>
-                </li>
+                <?php include "include/link.php" ?>
               </ul>
             </nav>
           </div>
@@ -122,7 +114,7 @@
           <div class="row">
             
             <div class="col-sm-3 mbpr-0">
-                <img src="images/logo-wide3.png" class="trans-logo">
+                <img src="images/bg/s-back.png" class="trans-logo">
             </div>
             <div class="col-sm-9 mbpr-0">
                 <img src="images/bg/back.png" class="trans-r">
@@ -131,7 +123,7 @@
         </div>      
       </section>    
       <!-- Section: About -->
-      <section class="login-area" style="margin-top:20px;" >
+      <section class="login-area">
         <div class="container pt-10 pb-10">
           <div class="row">
             
@@ -680,6 +672,17 @@
           </div>
         </div>
       </section>
+      <section class="thank-area" style="margin-top:20px;" >
+        <div class="container pt-10 pb-10">
+          <div class="row">	
+            <div class="col-sm-12 mbpr-0" style="padding: 20px;background: #eee;">
+				<h1>Thanks!! your form is already submitted
+					<small><a>Click Here to view your form</a></small>
+				</h1>
+			</div>								
+          </div>
+        </div>
+      </section>
     </div>
     <!-- end main-content -->
     
@@ -704,12 +707,12 @@
             <div class="widget dark">
               <h5 class="widget-title">Useful Links</h5>
               <ul class="list angle-double-right list-border">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About_us.html">About Us</a></li>
-                <li><a href="news.html">News</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="About_us.php">About Us</a></li>
+                <li><a href="news.php">News</a></li>
                 <li><a href="donation.php">Donation</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact_us.html">Contact Us</a></li>               
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="contact_us.php">Contact Us</a></li>               
               </ul>
             </div>
           </div>
@@ -985,6 +988,23 @@
     span {
         display: block;
     }
+	.thank-area h1, .thank-area small{
+		display: block;
+		text-align: center;
+		margin-top: 20px;
+	}
+	.thank-area small a {
+		font-size: 25px;
+		border: 1px solid #ff00fa;
+		padding: 7px 20px;
+		border-radius: 50px;
+		cursor: pointer;
+		margin-top: 20px;
+	}
+	.thank-area small a:hover {
+		background: #ff00fa;
+		color: #fff;
+	}
 </style>
   <!-- Footer Scripts -->
   <!-- JS | Custom script for all pages -->

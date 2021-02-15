@@ -1,3 +1,0 @@
-[03-Jan-2020 13:02:56 UTC] PHP Recoverable fatal error:  Object of class mysqli could not be converted to string in /home/allassamtrans/public_html/gallery.php on line 1
-[03-Jan-2020 13:03:42 UTC] PHP Recoverable fatal error:  Object of class mysqli could not be converted to string in /home/allassamtrans/public_html/gallery.php on line 1
-[03-Jan-2020 13:23:08 UTC] PHP Parse error:  syntax error, unexpected 'callback' (T_STRING) in /home/allassamtrans/public_html/gallery.php on line 1623
