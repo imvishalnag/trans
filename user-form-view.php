@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['mobile']) || empty($_SESSION['mobile'])) {
+    header("location:login.php");
+}
+
+include "config/db_connect.php";
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
@@ -97,6 +107,7 @@
               <a class="menuzord-brand pull-left flip" href="index.php"><img src="images/logo.jpg" alt=""></a>
               <ul class="menuzord-menu"> 
                 <?php include "include/link.php" ?>
+                <li><a href="web/php/user_logout.php" style="border: 1px solid #ff00fa;">Logout</a></li>
               </ul>
             </nav>
           </div>
@@ -126,28 +137,32 @@
       <section class="login-area">
         <div class="container pt-10 pb-10">
           <div class="row">
-            
+            <?php
+                $sql_user_details = "SELECT * FROM `user_details` WHERE `user_id`='$_SESSION[user_ata]'";
+                if ($res_user_details = $connect->query($sql_user_details)) {
+                    $row_user_details = $res_user_details->fetch_assoc();
+            ?>
             <div class="col-sm-12 mbpr-0">
                 <form id="contact_form" name="contact_form" class="login" action="user-form.php" method="post">
                     
                     <div class="row">
                         <div class="form-group col-md-5 col-xs-6">
                             <h4 for="email">1. Name <small>(assigned at birth)</small></h4>
-                            <h6>Unknown Name</h6>
+                            <h6><?=$row_user_details['name']?></h6>
                             <h4 for="date">2. Father Name </h4>
-                            <h6>Unknown Name</h6>
+                            <h6><?=$row_user_details['father_name']?></h6>
                         </div>
                         <div class="form-group col-md-5 col-xs-6">
                             <h4 for="date">3. Preferred Name </h4>
-                            <h6>Unknown Name</h6>
+                            <h6><?=$row_user_details['prefered_name']?></h6>
                             <h4 for="date">4. Mother Name </h4>
-                            <h6>Unknown Name</h6>
+                            <h6><?=$row_user_details['mother_name']?></h6>
                         </div>
                         <div class="form-group col-md-2 col-xs-12">
                             <ul class="thumbnails">
                                 <li>
                                     <a title="Group photo 1">
-                                        <img src="images/profilepic.png" class="profilepic blah">
+                                        <img src="uploads/user_image/<?=$row_user_details['user_image']?>" class="profilepic blah">
                                     </a>
                                 </li>
                             </ul>
@@ -155,62 +170,79 @@
                         </div>								
                         <div class="form-group col-md-8 col-xs-12" style="margin-bottom: 20px;">
                             <h4>5. Preferred Category<small> Under the definition of Transgender, been recognized under NALSA Judgment (Supra)</small></h4>
-                            <h6>Unknown Name</h6>
+                            <h6><?=$row_user_details['category']?></h6>
                         </div>
                     </div>
                     <div class="row">
+                        <?php
+                        if (!empty($row_user_details['p_address_id'])) {
+                            $sql_p_address = "SELECT * FROM `address` WHERE `id`='$row_user_details[p_address_id]'";
+                            if ($res_p_address = $connect->query($sql_p_address)) {
+                                $row_p_address = $res_p_address->fetch_assoc();
+                        ?>
                         <div class="form-group col-md-12">
                             <hr>
                             <h4>6. Permanent Address</h4>
                         </div>
                         <div class="form-group col-md-6">
                             <h4 for="date">Address</h4>
-                            <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+                            <h6><?=$row_p_address['address']?></h6>
                         </div>
                         <div class="form-group col-md-3 col-xs-6">
                             <h4 for="date">Pincode</h4>
-							<h6>781544</h6>
+							<h6><?=$row_p_address['pin']?></h6>
                         </div>
                         <div class="form-group col-md-3 col-xs-6">
                             <h4 for="date">District</h4>
-							<h6>Guwahati</h6>
+							<h6><?=$row_p_address['dist']?></h6>
                         </div>
+
+                        <?php
+                        }}
+                        ?>
+
+                        <?php
+                        if (!empty($row_user_details['p_address_id'])) {
+                            $sql_r_address = "SELECT * FROM `address` WHERE `id`='$row_user_details[r_address_id]'";
+                            if ($res_r_address = $connect->query($sql_r_address)) {
+                                $row_r_address = $res_r_address->fetch_assoc();
+                        ?>
                         <div class="form-group col-md-12">
                             <h4>7. Present Address</h4>
                         </div>
-                        <div class="form-group col-md-12" style="padding: 11px!important;">
-                            <input type="checkbox"> if present address is same as permerant address
-                        </div>
                         <div class="form-group col-md-6">
                             <h4 for="date">Present Address</h4>
-                            <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+                            <h6><?=$row_r_address['address']?></h6>
                         </div>
                         <div class="form-group col-md-3 col-xs-6">
                             <h4 for="date">Pincode</h4>
-							<h6>781544</h6>
+							<h6><?=$row_r_address['pin']?></h6>
                         </div>
                         <div class="form-group col-md-3 col-xs-6">
                             <h4 for="date">District</h4>
-							<h6>Guwahati</h6>
+							<h6><?=$row_r_address['dist']?></h6>
                         </div>
+                        <?php
+                        }}
+                        ?>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12">
                             <hr>
                             <h4 for="date">8. Gharana Details <small>(In Case of Kinner/Hijra)</small></h4>
-                            <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+                            <h6><?=$row_user_details['gh_details']?></h6>
                         </div>
                         <div class="form-group col-md-4 col-xs-4">
                             <h4 for="date">Pincode</h4>
-                            <h6>Guwahati</h6>
+                            <h6><?=$row_user_details['gh_pin']?></h6>
                         </div>
                         <div class="form-group col-md-4 col-xs-4">
                             <h4 for="date">District</h4>
-                            <h6>Guwahati</h6>
+                            <h6><?=$row_user_details['gh_dist']?></h6>
                         </div>
                         <div class="form-group col-md-4 col-xs-4">
                             <h4 for="date">State</h4>
-                            <h6>Guwahati</h6>
+                            <h6><?=$row_user_details['gh_state']?></h6>
                         </div>
                     </div>
                     <div class="row">
@@ -218,299 +250,462 @@
                             <hr>
                             <h4>9. Whether undergone Psychiatric Evaluation/HRT/Lazer Therapy (if “YES”), Please submit details:
                                 <span>
-                                    <b class="radio-h4">Yes</b>										
+                                    <b class="radio-h4"><?=$row_user_details['phy_status']?></b>										
                                 </span>
                             </h4>
                         </div>
                         <div class="form-group col-md-6 col-xs-6">
                             <h4 for="date">Doctor Name</h4>
-                            <h6>Guwahati</h6>
+                            <h6><?=$row_user_details['phy_doctor']?></h6>
                         </div>
                         <div class="form-group col-md-6 col-xs-6">
                             <h4 for="date">Professional Expertise</h4>
-                            <h6>Guwahati</h6>
+                            <h6><?=$row_user_details['phy_exp']?></h6>
                         </div>
                         <div class="form-group col-md-6 col-xs-6">
                             <h4 for="date">Phone Number</h4>
-                            <h6>Guwahati</h6>
+                            <h6><?=$row_user_details['phy_phone']?></h6>
                         </div>
                         <div class="form-group col-md-6 col-xs-6 procedure">
                             <h4 for="date" style="margin-bottom: 12px;">Procedures</h4>
-                            <h6>PSYCHIATRIC  EVALUATION</h6>	
+                            <h6><?=$row_user_details['phy_category']?></h6>	
                         </div>	
                     </div>	
+
+                    <?php
+                        if (!empty($row_user_details['p_address_id'])) {
+                            $sql_document = "SELECT * FROM `documents` WHERE `user_id`='$_SESSION[user_ata]'";
+                            if ($res_document = $connect->query($sql_document)) {
+                                $row_document = $res_document->fetch_assoc();
+                    ?>
                     <div class="row">				
                         <div class="form-group col-md-12">
                             <hr>
                             <h4>10. Do you have any of the following documents ? if “YES”, Tick (Yes) & submit a copy of the same</h4>
                         </div>
+                       
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.a. Birth Certificate 
 							<span>
-								<b class="radio-h4">Yes</b>										
+                                <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<b class="radio-h4">Yes</b>';
+                                }else{
+                                    print '<b class="radio-h4">No</b>';
+                                }
+                                ?>																	
 							</span>
 							</h4>
 						</div>
+
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+                            <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['birth'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
+
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.b. Election Voter
 								<span>
-									<b class="radio-h4">Yes</b>										
+									<?php
+                                    if (!empty($row_document['voter_id'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                    ?>									
 								</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+                            <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['voter_id'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.c. Pan Card 
 							<span>
-								<b class="radio-h4">Yes</b>										
+								<?php
+                                    if (!empty($row_document['pan_card'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>  									
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+							<?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['pan_card'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.d. Adhaar Card 
 							<span>
-								<b class="radio-h4">Yes</b>										
+								<?php
+                                    if (!empty($row_document['aadhar_card'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>  									
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+							<?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['aadhar_card'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.e. Ration Card / BPL Card 
 							<span>
-								<b class="radio-h4">Yes</b>										
+								<?php
+                                    if (!empty($row_document['ration_card'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>  								
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+							<?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['ration_card'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.f. Bank Password 
 							<span>
-								<b class="radio-h4">Yes</b>										
+								<?php
+                                    if (!empty($row_document['bank_pass'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>  										
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+							<?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['bank_pass'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.g. Mnrega Card 
 							<span>
-								<b class="radio-h4">Yes</b>										
+								<?php
+                                    if (!empty($row_document['mnrg_card'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?> 									
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+							<?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['mnrg_card'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.h. Passport 
 							<span>
-								<b class="radio-h4">Yes</b>										
+                                <?php
+                                    if (!empty($row_document['passport'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>      									
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+                            <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['passport'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.i. High School Leaving Certificate 
 							<span>
-								<b class="radio-h4">Yes</b>										
+                                <?php
+                                    if (!empty($row_document['hslc_cert'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>   									
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+                            <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['hslc_cert'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.j. H.S Passed Certificate
 							<span>
-								<b class="radio-h4">Yes</b>										
+                                <?php
+                                    if (!empty($row_document['hs_cert'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>   									
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+                            <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['hs_cert'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.k. Gradution Passed Certificate 
 							<span>
-								<b class="radio-h4">Yes</b>										
+                                <?php
+                                    if (!empty($row_document['graduation_cert'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?> 									
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+                            <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['graduation_cert'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
 						<div class="form-group col-md-4 col-xs-4 doc" style="margin-left: 0px">
 							<h4 for="email">10.l. Name Changed Affidavit
 							<span>
-								<b class="radio-h4">Yes</b>										
+                                <?php
+                                    if (!empty($row_document['name_chng'])) {
+                                       print '<b class="radio-h4">Yes</b>';
+                                    }else{
+                                        print '<b class="radio-h4">No</b>';
+                                    }
+                                ?>  								
 							</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-2 col-xs-2 doc">
-							<ul class="thumbnails">
-								<li>
-									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
-									</a>
-								</li>
-							</ul>
+                            <?php
+                                if (!empty($row_document['birth'])) {
+                                   print '<ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img src="uploads/user_image/'.$row_document['name_chng'].'" class="profilepic">
+                                            </a>
+                                        </li>
+                                    </ul>';
+                                }
+                            ?>
 						</div>
-                    </div>		
+                    </div>
+                    <?php }}?>
+
                     <div class="row">	
                         <div class="form-group col-md-12">
                             <hr>
                             <h4>11. Qualification (if any), furnish details & submit a copy of the same :</h4>
                         </div>
+
+                        <?php
+                        if (!empty($row_user_details['p_address_id'])) {
+                            $sql_qualification = "SELECT * FROM `qualification` WHERE `user_id`='$_SESSION[user_ata]'";
+                            if ($res_qualification = $connect->query($sql_qualification)) {
+                                while($row_qualification = $res_qualification->fetch_assoc()){
+                        ?>
                         <div class="form-group col-md-6">
                             <h4 for="email">Name of the School/College/University</h4>
-                            <h6>THIS</h6>
+                            <h6><?=$row_qualification['name_school']?></h6>
                         </div>
                         <div class="form-group col-md-2 col-xs-6">
                             <h4 for="date">Passing Year </h4>
-                            <h6>THIS</h6>
+                            <h6><?=$row_qualification['passing_year']?></h6>
                         </div>
                         <div class="form-group col-md-2 col-xs-6">
                             <h4 for="date">Detail </h4>
 							<ul class="thumbnails">
 								<li>
 									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
+										<img src="uploads/user_image/<?=$row_qualification['file']?>" class="profilepic">
 									</a>
 								</li>
 							</ul>
                         </div>
+                    <?php } } } ?> 
+
                     </div>	
                     <div class="row">		
                         <div class="form-group col-md-12">
                             <h4>12. Other Qualification (if any), furnish details & submit a copy of the same : 
                                 <span>
-                                    <b class="radio-h4">Yes</b>										
+                                    <?php
+                                        if ($row_user_details['other_q_status'] == 'yes') {
+                                           print '<b class="radio-h4">Yes</b>';
+                                        }else{
+                                            print '<b class="radio-h4">No</b>';
+                                        }
+                                    ?> 										
                                 </span>
 							</h4>
                         </div>
+
                         <div class="form-group col-md-6">
                             <h4 for="email">Name of the institution</h4>
-                            <h6>THIS</h6>
+                            <h6><?=$row_user_details['other_q_name']?></h6>
                         </div>
                         <div class="form-group col-md-2 col-xs-6">
                             <h4 for="date">Passing Year </h4>
-                            <h6>THIS</h6>
+                            <h6><?=$row_user_details['other_q_year']?></h6>
                         </div>
+                        <?php
+                        if (!empty($row_user_details['other_q_file'])) {
+                        ?>
                         <div class="form-group col-md-2 col-xs-6">
                             <h4 for="date">Detail </h4>
 							<ul class="thumbnails">
 								<li>
 									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
+										<img src="uploads/user_image/<?=$row_user_details['other_q_file']?>" class="profilepic">
 									</a>
 								</li>
 							</ul>
                         </div>
+                        <?php } ?>
                     </div>
 					<div class="row">		
 						<div class="form-group col-md-12 procedure">
 							<hr>
 							<h4>13. Whether Name or Gender Changed in documents (if “YES”, please furnish details)
-								<span>
-									<b class="radio-h4">Yes</b>										
+								<span>									
+                                    <?php
+                                        if ($row_user_details['gender_change_status'] == 'yes') {
+                                           print '<b class="radio-h4">Yes</b>';
+                                        }else{
+                                            print '<b class="radio-h4">No</b>';
+                                        }
+                                    ?> 									
 								</span>
 							</h4>
 						</div>
 						<div class="form-group col-md-7 col-xs-6">
 							<h4> Changed Name</h4>
-							<h6>THIS</h6>
+							<h6><?=$row_user_details['gender_change_name']?></h6>
 						</div>
+                        <?php
+                        if (!empty($row_user_details['gender_change_file'])) {
+                        ?>
 						<div class="form-group col-md-2 col-xs-6">
 							<h4 for="date">Supporting Documents</h4>
 							<ul class="thumbnails">
 								<li>
 									<a title="Group photo 1">
-										<img src="images/profilepic.png" class="profilepic">
+										<img src="uploads/user_image/<?=$row_user_details['gender_change_file']?>" class="profilepic">
 									</a>
 								</li>
 							</ul>
 						</div>
+                        <?php } ?>
+
 					</div>	
 					<div class="row">				
 						<div class="form-group col-md-12">
@@ -519,19 +714,19 @@
 						</div>
 						<div class="form-group col-md-6">
 							<h4 for="email">Name of Guru</h4>
-							<h6>this</h6>
+							<h6><?=$row_user_details['guru_name']?></h6>
 						</div>
 						<div class="form-group col-md-3 col-xs-6">
 							<h4 for="date">Picode</h4>
-							<h6>this</h6>
+							<h6><?=$row_user_details['guru_pin']?></h6>
 						</div>
 						<div class="form-group col-md-3 col-xs-6">
 							<h4 for="date">District</h4>
-							<h6>this</h6>
+							<h6><?=$row_user_details['guru_dist']?></h6>
 						</div>
 						<div class="form-group col-md-12">
 							<h4 for="date">Address Guru <small>(In Case of Kinner/Hijra)</small></h4>
-							<h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+							<h6><?=$row_user_details['guru_address']?></h6>
 						</div>
                     </div>
 					<div class="row">
@@ -541,11 +736,21 @@
 						</div>
 						<div class="form-group col-md-5 procedure">
 							<span>
-								<b class="radio-h4">Begging</b>										
+								<b class="radio-h4"><?=$row_user_details['income_category']?></b>
 							</span> 				
 						</div>
-						<div class="form-group col-md-7">
-							<h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+						<div class="form-group col-md-2 col-xs-6">
+                            <?php
+                            if (!empty($row_user_details['income_file'])) {
+                            ?>
+                            <ul class="thumbnails">
+                                <li>
+                                    <a title="Group photo 1">
+                                        <img src="uploads/user_image/<?=$row_user_details['income_file']?>" class="profilepic">
+                                    </a>
+                                </li>
+                            </ul>
+                            <?php } ?>
 						</div>								
 					</div>
 					<div class="row">								
@@ -554,23 +759,29 @@
 						</div>
 						<div class="form-group col-md-4 col-xs-6">
 							<h4 for="date">16. Age</h4>
-							<h6>this</h6>
+							<h6><?=$row_user_details['age']?></h6>
 						</div>
 						<div class="form-group col-md-4 col-xs-6">
 							<h4 for="date">17. Date Of Birth <small>(as per birth certificate)</small></h4>
-							<h6>this</h6>
+							<h6><?=$row_user_details['dob']?></h6>
 						</div>
 						<div class="form-group col-md-4">
 							<h4 for="date">18. Phone No </h4>
-							<h6>9457845785</h6>
+							<h6><?=$row_user_details['mobile']?></h6>
 						</div>
 						<div class="form-group col-md-12">
 							<h4>19. Any Criminal/Civil Case pending against you, if “YES”, please furnish details
 								<span>
-									<b class="radio-h4">Yes</b>										
+									<?php
+                                        if ($row_user_details['criminal_status'] == 'yes') {
+                                           print '<b class="radio-h4">Yes</b>';
+                                        }else{
+                                            print '<b class="radio-h4">No</b>';
+                                        }
+                                    ?> 									
 								</span>
 							</h4>
-							<h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h6>
+							<h6><?=$row_user_details['criminal_details']?></h6>
 						</div>
 					</div>	
                     <div class="row">
@@ -582,84 +793,128 @@
                         <div class="form-group col-md-4 col-xs-4 doc">
                             <h4 for="email">Bullying 
                                 <span>
-                                    <b class="radio-h4">Yes</b>										
+                                    <?php
+                                        if ($row_user_details['bullying_status'] == 'yes') {
+                                           print '<b class="radio-h4">Yes</b>';
+                                        }else{
+                                            print '<b class="radio-h4">No</b>';
+                                        }
+                                    ?>  								
                                 </span>
                             </h4>
                         </div>
-                        <div class="form-group col-md-2 col-xs-2 doc">
+                        <div class="form-group col-md-2 col-xs-2 doc"> 
+                            <?php
+                                if (!empty($row_user_details['bullying_file'])) {
+                            ?>
                             <ul class="thumbnails">
                                 <li>
                                     <a title="Group photo 1">
-                                        <img src="images/profilepic.png" class="profilepic">
+                                        <img src="uploads/user_image/<?=$row_user_details['bullying_file']?>" class="profilepic">
                                     </a>
                                 </li>
                             </ul>
+                        <?php } ?>
                         </div>     
                         <div class="form-group col-md-4 col-xs-4 doc">
                             <h4 for="email">Police Harassment (in any form)
                                 <span>
-                                    <b class="radio-h4">Yes</b>										
+                                    <?php
+                                        if ($row_user_details['police_status'] == 'yes') {
+                                           print '<b class="radio-h4">Yes</b>';
+                                        }else{
+                                            print '<b class="radio-h4">No</b>';
+                                        }
+                                    ?> 									
                                 </span>
                             </h4>
                         </div>
                         <div class="form-group col-md-2 col-xs-2 doc">
+                            <?php
+                                if (!empty($row_user_details['police_file'])) {
+                            ?>
                             <ul class="thumbnails">
                                 <li>
                                     <a title="Group photo 1">
-                                        <img src="images/profilepic.png" class="profilepic">
+                                        <img src="uploads/user_image/<?=$row_user_details['police_file']?>" class="profilepic">
                                     </a>
                                 </li>
                             </ul>
+                        <?php } ?>
                         </div>		
                         <div class="form-group col-md-4 col-xs-4 doc">
                             <h4 for="email">Discrimination from any Authority(in any establishment or public places )
                                 <span>
-                                    <b class="radio-h4">Yes</b>										
+                                    <?php
+                                        if ($row_user_details['disc_status'] == 'yes') {
+                                           print '<b class="radio-h4">Yes</b>';
+                                        }else{
+                                            print '<b class="radio-h4">No</b>';
+                                        }
+                                    ?> 								
                                 </span>
                             </h4>
                         </div>
                         <div class="form-group col-md-2 col-xs-2 doc">
+                            <?php
+                                if (!empty($row_user_details['disc_file'])) {
+                            ?>
                             <ul class="thumbnails">
                                 <li>
                                     <a title="Group photo 1">
-                                        <img src="images/profilepic.png" class="profilepic">
+                                        <img src="uploads/user_image/<?=$row_user_details['disc_file']?>" class="profilepic">
                                     </a>
                                 </li>
                             </ul>
+                        <?php } ?>
                         </div>
                         <div class="form-group col-md-4 col-xs-4 doc">
                             <h4 for="email">Family or Social torture. 
                                 <span>
-                                    <b class="radio-h4">Yes</b>										
+                                    <?php
+                                        if ($row_user_details['family_status'] == 'yes') {
+                                           print '<b class="radio-h4">Yes</b>';
+                                        }else{
+                                            print '<b class="radio-h4">No</b>';
+                                        }
+                                    ?>  									
                                 </span>
                             </h4>
                         </div>
                         <div class="form-group col-md-2 col-xs-2 doc">
+                            <?php
+                                if (!empty($row_user_details['family_file'])) {
+                            ?>
                             <ul class="thumbnails">
                                 <li>
                                     <a title="Group photo 1">
-                                        <img src="images/profilepic.png" class="profilepic">
+                                        <img src="uploads/user_image/<?=$row_user_details['family_file']?>" class="profilepic">
                                     </a>
                                 </li>
                             </ul>
+                        <?php } ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-12"><hr> </div>
                         <div class="form-group col-md-6 col-xs-6">
                         <h4>5. Signature of the surveyor. </h4>
-                            <h6>this</h6>
+                            <h6><?=$row_user_details['survay_sign']?></h6>
 
                         </div>
                         <div class="form-group col-md-6 col-xs-6">
                           <h4>Signature of the Transgender or Left thumb impression </h4>
+                            <?php
+                                if (!empty($row_user_details['user_sign'])) {
+                            ?>
                             <ul class="thumbnails">
                                 <li>
                                     <a title="Group photo 1">
-                                        <img src="images/profilepic.png" class="profilepic">
+                                        <img src="uploads/user_image/<?=$row_user_details['user_sign']?>" class="profilepic" style="max-height: 200px;">
                                     </a>
                                 </li>
                             </ul>
+                        <?php } ?>
                         </div>
                     </div>
                     <div class="row">
@@ -668,7 +923,11 @@
 						</div>
                     </div>
                 </form>
-            </div>											
+            </div>	
+
+            <?php
+                }
+            ?>
           </div>
         </div>
       </section>

@@ -1,9 +1,11 @@
 <?php
+
 session_start();
 if (!isset($_SESSION['mobile']) || empty($_SESSION['mobile'])) {
     header("location:login.php");
 }
 
+include "config/db_connect.php";
 function showMsg($msg)
 {
     if ($msg == '1') {
@@ -122,6 +124,15 @@ function showMsg($msg)
     <!-- Start main-content -->
     <div class="main-content">
       <!-- Section: inner-header -->
+       
+      <?php
+      $sql_user_check = "SELECT * FROM `user_details` WHERE `user_id`='$_SESSION[user_ata]'";
+
+      if ($res_user_check = $connect->query($sql_user_check)) {
+          if ($res_user_check->num_rows < 1) {
+
+      ?>
+
       <section class="inner-header">
         <div class="container pt-0 pb-0">
           <!-- Section Content -->
@@ -135,7 +146,7 @@ function showMsg($msg)
             </div>
           </div>
         </div>      
-      </section>    
+      </section> 
       <!-- Section: About -->
       <section class="login-area" >
         <div class="container pt-10 pb-10">
@@ -184,21 +195,19 @@ function showMsg($msg)
                         <div class="form-group col-md-8 col-xs-12" style="margin-bottom: 20px;">
                             <h4>5. Preferred Category<small> Under the definition of Transgender, been recognized under NALSA Judgment (Supra)</small></h4>
                             <select id="e1" class="form-select2" name="catgegory" required="">
-                                <option value="Alabama" selected>Alabama</option>
-                                <option value="Arkansas">Arkansas</option>
-                                <option value="Illinois">Illinois</option>
-                                <option value="Iowa">Iowa</option>
-                                <option value="Kansas">Kansas</option>
-                                <option value="Kentucky">Kentucky</option>
-                                <option value="Louisiana">Louisiana</option>
-                                <option value="Minnesota">Minnesota</option>
-                                <option value="Mississippi">Mississippi</option>
+                                <option value="KINNER/HIJRA" selected>KINNER/HIJRA</option>
+                                <option value="JOGAPPAS">JOGAPPAS</option>
+                                <option value="SHIV SHAKTIS">SHIV SHAKTIS</option>
+                                <option value="ARAVANI">ARAVANI</option>
+                                <option value="THIRUNANGI">THIRUNANGI</option>
+                                <option value="KOTHI">KOTHI</option>
+                                <option value="JOGTAS">JOGTAS</option>
+                                <option value="TRANSWOMEN">TRANSWOMEN</option>
                                 <option value="Missouri">Missouri</option>
-                                <option value="Oklahoma">Oklahoma</option>
-                                <option value="South Dakota">South Dakota</option>
-                                <option value="Texas">Texas</option>
-                                <option value="Tennessee">Tennessee</option>
-                                <option value="Wisconsin">Wisconsin</option>
+                                <option value="TRANSMAN">TRANSMAN</option>
+                                <option value="TRANSSEXUAL">TRANSSEXUAL</option>
+                                <option value="GENDERQUEER (necessary to submit psychiatrist reports)">GENDERQUEER (necessary to submit psychiatrist reports)</option>
+                                <option value="KINNER/HIJRA (AKAU or AKUA) ">KINNER/HIJRA (AKAU or AKUA) </option>
                             </select>
                         </div>
 
@@ -1076,16 +1085,36 @@ function showMsg($msg)
                                         <span id="user_sign_error"></span>
                         </div>
                     </div>
-                    <div class="form-group col-md-12">
-                        <button class="btn btn-success" name="submit" value="submit">Submit</button>
-                        <!-- <a href="#" class="btn btn-default">Cancel</a> -->
-                        <!-- <a class="btn btn-primary">Edit</a> -->
+                   <div>
+                        <div class="form-group col-md-12">
+                            <button class="btn btn-success" name="submit" value="submit">Submit</button>
+                            <!-- <a href="#" class="btn btn-default">Cancel</a> -->
+                            <!-- <a class="btn btn-primary">Edit</a> -->
+                        </div>
                     </div>
                 </form>
             </div>											
           </div>
         </div>
       </section>
+        
+        <?php }else{ ?>
+      <section class="thank-area" style="margin-top:20px;" >
+        <div class="container pt-10 pb-10">
+          <div class="row"> 
+            <div class="col-sm-12 mbpr-0" style="padding: 20px;background: #eee;">
+                <h1>Form Submitted Successfully
+                    <small><a href="user-form-view.php">Click Here to view your form</a></small>
+                </h1>
+            </div>                              
+          </div>
+        </div>
+      </section>
+
+          <?php
+            }
+          }
+          ?>
     </div>
     <!-- end main-content -->
     
@@ -1398,6 +1427,23 @@ function showMsg($msg)
     }
     span {
         display: block;
+    }
+    .thank-area h1, .thank-area small{
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .thank-area small a {
+        font-size: 25px;
+        border: 1px solid #ff00fa;
+        padding: 7px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    .thank-area small a:hover {
+        background: #ff00fa;
+        color: #fff;
     }
 </style>
   <!-- Footer Scripts -->

@@ -10,10 +10,12 @@ if (isset($_POST['mobile']) && !empty($_POST['mobile']) && isset($_POST['otp']) 
 	if ($res = $connect->query($sql)) {
 		$otp = rand(111111,999999);
 		if ($res->num_rows > 0) {
+			$row_user = $res->fetch_assoc();
 			$sql_insert_otp = "UPDATE `users` SET `otp`='$otp' WHERE `mobile`='$mobile'";
 			if ($res_inser_otp = $connect->query($sql_insert_otp)) {	
 			 	echo "2";
 			 	$_SESSION['mobile']=$mobile;
+			 	$_SESSION['user_ata']=$row_user['id'];
 			}
 		}else{
 			echo "1";
