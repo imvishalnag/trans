@@ -58,6 +58,28 @@
   <script src="js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
   <script src="js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
   <style type="text/css">
+    .product-item {
+      background: #fbfbfb;
+      box-shadow: 2px 2px 7px #e2dada;
+      border: 1px solid #eeeeee;
+      min-height: 397px;
+      margin-bottom: 20px;
+    }
+    .product-item h5 {
+      margin-bottom: 0px;
+    }
+
+    .product-thumb {
+      padding: 20px
+    }
+
+    .product-item p {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+    .product-item p small {
+      font-size: 85%;
+    }
     .one {
       border-style: solid;
       border-color: #fff
@@ -117,7 +139,7 @@
         margin: 0 auto;
         max-width: 160px;
         position: relative;
-        top: 67px
+        top: 47px;
       }
 
       .merahaiclass {
@@ -146,7 +168,7 @@
         color: #333;
         top: 43px;
         position: absolute;
-        margin-left: 97px
+        margin-left: 97px;
       }
 
       #gallery h2 {
@@ -303,6 +325,15 @@
         background: rgba(0, 0, 0, .6);
         height: 269px;
         margin-top: 68px
+      }
+      
+      .merahhai h2 {
+        margin:0;
+        transform: translateX(-20px);
+      }
+      
+      .merahhai .container-fluid {
+        padding-top:0
       }
     }
 
@@ -1151,39 +1182,34 @@
             </div>
           </div>
           <div class="row multi-row-clearfix">
-            <div class="col-md-12">
-              <div class="products owl-carousel-4col">
-                <?php
-                include "config/db_connect.php";
-                $sql = "SELECT * FROM employee WHERE status = 2 order by created_at desc LIMIT 4";
-                if ($res_users = $connect->query($sql)) {
-                  if ($res_users->num_rows > 0) {
-                    while ($row_user = $res_users->fetch_assoc()) {
-                ?>
-                      <div class="item">
-                        <div class="product bg-white">
-
-                          <div class="product-thumb">
-                            <img alt="" src="<?php echo $row_user['image_file'] ?>" width="310" height="260" class="img-responsive img-fullwidth">
-                          </div>
-                          <div class="product-details text-center">
-                            <a href="#">
-                              <h5 class="product-title">
-                                <?php echo $row_user['name'] ?></h5>
-                            </a>
-                            <p><?php echo $row_user['qualification'] ?? '' ?><br>
-                              <?php echo $row_user['designation'] ?? '' ?><br>
-                              All Assam Transgender Association.</p>
-                          </div>
-                        </div>
-                      </div>
-                <?php }
-                  }
-                }
-                ?>
-
+              <?php
+              include "config/db_connect.php";
+              $sql = "SELECT * FROM employee WHERE status = 2 order by created_at asc LIMIT 4";
+              if ($res_users = $connect->query($sql)) {
+                if ($res_users->num_rows > 0) {
+                  while ($row_user = $res_users->fetch_assoc()) {
+              ?>
+              <!-- Team Grid -->
+              <div class="col-md-3">
+                <div class="product-item">
+                  <div class="product-thumb">
+                    <img alt="" src="<?php echo $row_user['image_file'] ?>" class="img-responsive img-fullwidth">
+                  </div>
+                  <div class="product-details text-center">
+                    <a href="#">
+                      <h5 class="product-title"><?php echo $row_user['name'] ?></h5>
+                    </a>
+                    <p><small><?php echo $row_user['qualification'] ?></small></p>
+                    <p><?php echo $row_user['designation'] ?></p>
+                    <p><?php echo $row_user['email'] ?></p>
+                    <p><?php echo $row_user['mobile'] ?></p>
+                  </div>
+                </div>
               </div>
-            </div>
+              <?php }
+                }
+              }
+              ?>
           </div>
         </div>
       </section>

@@ -6,10 +6,10 @@ include "include/head.php";
 function showMsg($msg)
 {
     if ($msg == '1') {
-        print "<p style='color:green'>Employee Successfully Added</p>";
+        print "<p class='alert alert-success'>Employee Successfully Added</p>";
     }
     if ($msg == '3') {
-        print "<p style='color:red'>Enter Name</p>";
+        print "<p class='alert alert-danger'>Enter Name</p>";
     }
     
 }

@@ -102,7 +102,7 @@ include "include/head.php";
 												$user_count++;
 											}
 										} else {
-											print "<tr><td colspan='4' align='center'>No Users Found</td></tr>";
+											print "<tr><td colspan='8' align='center'>No Users Found</td></tr>";
 										}
 									}
 									?>

@@ -66,12 +66,24 @@
       background: #fbfbfb;
       box-shadow: 2px 2px 7px #e2dada;
       border: 1px solid #eeeeee;
+      min-height: 397px;
+      margin-bottom: 20px;
+    }
+    .product-item h5 {
+      margin-bottom: 0px;
     }
 
     .product-thumb {
       padding: 20px
     }
 
+    .product-item p {
+      margin-bottom: 0;
+      font-size: 12px;
+    }
+    .product-item p small {
+      font-size: 90%;
+    }
     .bg-theme-colored .sm-text-center .btn {
       margin-top: 20px !important;
       /* padding-top: 6px; */
@@ -385,7 +397,7 @@
                   while ($row_user = $res_users->fetch_assoc()) {
               ?>
                   <!-- Team Grid -->
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="product-item">
                       <div class="product-thumb">
                         <img alt="" src="<?php echo $row_user['image_file'] ?>" class="img-responsive img-fullwidth">
@@ -394,7 +406,10 @@
                         <a href="#">
                           <h5 class="product-title"><?php echo $row_user['name'] ?></h5>
                         </a>
+                        <p><small><?php echo $row_user['qualification'] ?></small></p>
                         <p><?php echo $row_user['designation'] ?></p>
+                        <p><?php echo $row_user['email'] ?></p>
+                        <p><?php echo $row_user['mobile'] ?></p>
                       </div>
                     </div>
                   </div>
