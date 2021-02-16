@@ -44,5 +44,7 @@ if (isset($_POST['submit'])) {
     } else {
       header('location: ../employee-form-view.php?msg=2');
     }
+  }else{
+    header('location: ../employee-form-view.php?msg=3');
   }
 }

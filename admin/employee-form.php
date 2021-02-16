@@ -47,55 +47,55 @@ function showMsg($msg)
                 <div class="col-md-12 user-detail">
                     <div class="wdgt wdgt-primary">
                         <?php
-                        if (isset($_GET['msg']) && !empty($_GET['msg'])) {
-                            showMsg($_GET['msg']);
-                        } else {
-                            echo "Something Went wrong! Please Try again later";
+                        if(isset($_GET['user_id']) && !empty($_GET['user_id'])){
+                            $id = $_GET['user_id'];
+                            $sql = "SELECT * FROM employee WHERE id = $id LIMIT 1";
+                            if($res_user_check = $connect->query($sql)) {
+                                if ($res_user_check->num_rows > 0) {
+                                  $row_user_details = $res_user_check->fetch_assoc();
+                                  ?>
+
+                        <div class="wdgt-header"><i class="fa fa-table"></i>Employee Form</div>
+                        <div class="wdgt-body tbl" style="padding-bottom:10px;">
+                                <div class="form-group col-md-5 col-xs-6">
+                                    <h4 for="email">1. Name <small>(assigned at birth)</small></h4>
+                                    <input type="text" class="form-control col-sm-12" name="name" value="<?php echo $row_user_details['name'] ?>" disabled>
+                                    <h4 for="date">2. Designation </h4>
+                                    <input type="text" class="form-control col-sm-12" name="designation" value="<?php echo $row_user_details['designation'] ?? '' ?>" disabled>
+                                </div>
+                                <div class="form-group col-md-5 col-xs-6">
+                                    <h4 for="date">3. Email </h4>
+                                    <input type="email" class="form-control col-sm-12" name="email" value="<?php echo $row_user_details['email'] ?? '' ?>" disabled>
+                                    <h4 for="date">4. Qualification</h4>
+                                    <input type="text" class="form-control col-sm-12" name="qualification" value="<?php $row_user_details['qualification'] ?? '' ?>" disabled>
+                                </div>
+                                <div class="form-group col-md-2 col-xs-12">
+                                    <h4 for="date">Photo </h4>
+                                    <ul class="thumbnails">
+                                        <li>
+                                            <a title="Group photo 1">
+                                                <img class="profilepic" src="../<?php echo $row_user_details['image_file'] ?? '' ?>" id="user_image_src" width="150" height="150">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <span id="user_image_error"></span>
+                                </div>
+
+
+                                <div class="form-group col-md-5 col-xs-6">
+                                    <h4 for="date">5. Contact No </h4>
+                                    <input type="number" class="form-control col-sm-12" name="mobile" value="<?php echo $row_user_details['mobile'] ?? '' ?>" disabled>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <input type="submit" name="submit" value="Submit" class="btn btn-primary pull-right">
+                                </div>
+                        </div>
+                        <?php
+                                }
+                            }
                         }
                         ?>
-                        <form action="php/employee_submit_data.php" enctype="multipart/form-data" method="post">
-                            <div class="wdgt-header"><i class="fa fa-table"></i>Employee Form</div>
-                            <div class="wdgt-body tbl" style="padding-bottom:10px;">
-                                <form enctype="multipart/form-data" method="post" action="aaa.ph">
-                                    <div class="form-group col-md-5 col-xs-6">
-                                        <h4 for="email">1. Name <small>(assigned at birth)</small></h4>
-                                        <input type="text" class="form-control col-sm-12" name="name" placeholder="Enter Name">
-                                        <h4 for="date">2. Designation </h4>
-                                        <input type="text" class="form-control col-sm-12" name="designation" placeholder="Enter Designation">
-                                    </div>
-                                    <div class="form-group col-md-5 col-xs-6">
-                                        <h4 for="date">3. Email </h4>
-                                        <input type="email" class="form-control col-sm-12" name="email" placeholder="Enter Email">
-                                        <h4 for="date">4. Qualification (if any)</h4>
-                                        <input type="text" class="form-control col-sm-12" name="qualification" placeholder="Enter Qualification">
-                                    </div>
-                                    <div class="form-group col-md-2 col-xs-12">
-                                        <h4 for="date">Photo </h4>
-                                        <ul class="thumbnails">
-                                            <li>
-                                                <a title="Group photo 1">
-                                                    <img class="profilepic" id="user_image_src">
-                                                </a>
-                                                <div class="options" style="background: #403f3fad;">
-                                                    <input type="file" name="user_image" id="user_image" onchange="fileTest(this,'user_image')">
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <span id="user_image_error"></span>
-                                    </div>
-
-
-                                    <div class="form-group col-md-5 col-xs-6">
-                                        <h4 for="date">5. Contact No </h4>
-                                        <input type="number" class="form-control col-sm-12" name="mobile" placeholder="Enter Mobile">
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <input type="submit" name="submit" value="Submit" class="btn btn-primary pull-right">
-                                    </div>
-                                </form>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>

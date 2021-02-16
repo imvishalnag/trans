@@ -69,26 +69,36 @@ include "include/head.php";
 								</thead>
 								<tbody>
 									<?php
-									$sql_users = "SELECT `id`, `name`, `email`, `designation`, `qualification`, `mobile`, `image_file` FROM `employee`";
+									$sql_users = "SELECT `id`, `name`, `email`, `designation`, `qualification`, `mobile`, `image_file`, `status` FROM `employee`";
 
 									if ($res_users = $connect->query($sql_users)) {
 										if ($res_users->num_rows > 0) {
 											$user_count = 1;
 											while ($row_user = $res_users->fetch_assoc()) {
-												print "<tr>
-													<td>$user_count</td>
-													<td>$row_user[name]</td>
-													<td>$row_user[email]</td>
-													<td>$row_user[designation]</td>
-													<td>$row_user[qualification]</td>
-													<td>$row_user[mobile]</td>
+												?>
+												<tr>
+													<td><?php echo $user_count ?></td>
+													<td><?php echo $row_user['name']?></td>
+													<td><?php echo $row_user['email']?></td>
+													<td><?php echo $row_user['designation']?></td>
+													<td><?php echo $row_user['qualification']?></td>
+													<td><?php echo $row_user['mobile']?></td>
 													<td>
-														<img src='../$row_user[image_file]' width='120'></td>
+														<img src='../<?php echo $row_user['image_file']?>' width='120'></td>
 													<td>
-														<a href='user-form-view.php?user_id=$row_user[id]' class='label label-success'>View Detail</a>
-														<a href='../admin/php/user-delete.php?user_id=$row_user[id]' class='label label-danger'>Delete</a>
+														<a href='./employee-form.php?user_id=<?php echo $row_user['id'] ?>' class='label label-success'>View Detail</a>
+														<a href='../admin/php/user-delete.php?user_id=<?php echo $row_user['id'] ?>' class='label label-danger'>Delete</a>
+
+														<?php 
+															if($row_user['status'] == 1){
+																echo "<a href='../admin/php/pin_to_home.php?user_id=$row_user[id]&status=2' class='label label-info'>Pin to Homepage</a>";
+															}else {
+																echo "<a href='../admin/php/pin_to_home.php?user_id= $row_user[id]&status=1' class='label label-danger'>Remove From Homepage</a>";
+															}
+														?>
 													</td>
-												</tr>";
+												</tr>
+												<?php
 												$user_count++;
 											}
 										} else {
